@@ -1,0 +1,238 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tetris Stack - Nível Adventurer: Documentação do Sistema Tetris Expert - Análise Inteligente de Jogabilidade</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Tetris Stack - Nível Adventurer<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Avançado de Gerenciamento de Peças Tetris</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div><div class="header">
+  <div class="headertitle"><div class="title">Documentação do Sistema Tetris Expert - Análise Inteligente de Jogabilidade </div></div>
+</div><!--header-->
+<div class="contents">
+<div class="textblock"><h1 class="doxsection"><a class="anchor" id="intro_sec"></a>
+Introdução</h1>
+<p>Este sistema implementa um simulador avançado de gerenciamento de peças do jogo Tetris com <b>Sistema Expert de Análise Inteligente</b>, utilizando estruturas de dados fundamentais (fila circular e pilha linear) combinadas com algoritmos de pontuação dinâmica, detecção de combos e progressão de níveis para criar uma experiência interativa e educativa de alto nível.</p>
+<h1 class="doxsection"><a class="anchor" id="features_sec"></a>
+Funcionalidades Principais</h1>
+<p>O sistema oferece as seguintes funcionalidades integradas:</p>
+<h2 class="doxsection"><a class="anchor" id="queue_features"></a>
+Fila Circular de Peças</h2>
+<ul>
+<li><b>Capacidade</b>: 5 peças simultâneas</li>
+<li><b>Operações</b>: Inserção (enqueue) e remoção (dequeue)</li>
+<li><b>Algoritmo</b>: Circular com índices dinâmicos</li>
+<li><b>Validação</b>: Controle automático de overflow/underflow</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="stack_features"></a>
+Pilha de Reserva</h2>
+<ul>
+<li><b>Capacidade</b>: 3 peças reservadas</li>
+<li><b>Operações</b>: Empilhamento (push) e desempilhamento (pop)</li>
+<li><b>Algoritmo</b>: LIFO (Last In, First Out)</li>
+<li><b>Estratégia</b>: Permite reservar peças para uso posterior</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="expert_features"></a>
+Sistema Expert (NOVO)</h2>
+<ul>
+<li><b>Pontuação Inteligente</b>: Cálculo dinâmico baseado em tipo de peça e multiplicadores</li>
+<li><b>Sistema de Combos</b>: Detecção automática de sequências e bonificações</li>
+<li><b>Progressão de Níveis</b>: Aumento automático de dificuldade e desafios</li>
+<li><b>Estatísticas Avançadas</b>: Análise completa de performance e eficiência</li>
+<li><b>Conquistas</b>: Sistema de marcos e recordes pessoais</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="integration_features"></a>
+Integração Avançada</h2>
+<ul>
+<li><b>Transferência</b>: Peças podem ser movidas da fila para a pilha</li>
+<li><b>Geração Automática</b>: Novas peças são criadas automaticamente</li>
+<li><b>Interface Visual</b>: Exibição em tempo real do estado das estruturas</li>
+<li><b>Análise em Tempo Real</b>: Processamento Expert de cada jogada</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="expert_system_sec"></a>
+Sistema Expert - Funcionalidades Avançadas</h1>
+<h2 class="doxsection"><a class="anchor" id="scoring_system"></a>
+Sistema de Pontuação</h2>
+<ul>
+<li><b>Pontuação Base</b>: Diferenciada por tipo (I=150, T=120, L=110, O=100)</li>
+<li><b>Multiplicadores</b>: De 1x até 10x baseado em combos consecutivos</li>
+<li><b>Fator Dificuldade</b>: Escala de 1.0 a 3.0 conforme progressão de níveis</li>
+<li><b>Bonificações</b>: Pontos extras por sequências e estratégias eficientes</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="combo_system"></a>
+Sistema de Combos</h2>
+<ul>
+<li><b>Detecção Automática</b>: Identifica sequências de 3+ peças do mesmo tipo</li>
+<li><b>Multiplicador Crescente</b>: Aumenta progressivamente com combos consecutivos</li>
+<li><b>Tracking Completo</b>: Registra melhor combo e total de combos da sessão</li>
+<li><b>Reset Inteligente</b>: Reinicia contadores quando quebra a sequência</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="level_system"></a>
+Sistema de Níveis</h2>
+<ul>
+<li><b>Progressão Automática</b>: Baseada em pontuação acumulada</li>
+<li><b>Dificuldade Escalável</b>: Aumento gradual dos desafios</li>
+<li><b>Limites Dinâmicos</b>: Pontos necessários aumentam exponencialmente</li>
+<li><b>Fator de Dificuldade</b>: Multiplica pontuação e complexidade</li>
+</ul>
+<h2 class="doxsection"><a class="anchor" id="analytics_system"></a>
+Sistema de Análise</h2>
+<ul>
+<li><b>Estatísticas Detalhadas</b>: Tracking completo de todas as jogadas</li>
+<li><b>Análise de Eficiência</b>: Percentual de uso otimizado da reserva</li>
+<li><b>Preferências de Jogo</b>: Identifica tipos de peças mais utilizados</li>
+<li><b>Recordes Pessoais</b>: Mantém histórico de melhores performances</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="usage_sec"></a>
+Exemplos de Uso</h1>
+<h2 class="doxsection"><a class="anchor" id="example_basic"></a>
+Uso Básico com Sistema Expert</h2>
+<div class="fragment"><div class="line"><span class="comment">// Inicialização completa do sistema</span></div>
+<div class="line">FilaCircular fila;</div>
+<div class="line">PilhaReserva pilha;</div>
+<div class="line">SistemaExpert expert;</div>
+<div class="line"> </div>
+<div class="line">inicializarFilaCircular(&amp;fila);</div>
+<div class="line">inicializarPilhaReserva(&amp;pilha);</div>
+<div class="line"><a class="code hl_function" href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a>(&amp;expert);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Jogada com análise Expert</span></div>
+<div class="line"><span class="keywordflow">if</span> (!verificarFilaVazia(&amp;fila)) {</div>
+<div class="line">    Peca pecaJogada = removerPecaDaFila(&amp;fila);</div>
+<div class="line">    <a class="code hl_function" href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a>(pecaJogada, 1, &amp;expert);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;Pontos: %d | Nível: %d | Combo: %dx\n&quot;</span>, </div>
+<div class="line">           expert.pontosUltimaJogada, </div>
+<div class="line">           expert.nivelAtual, </div>
+<div class="line">           expert.multiplicadorAtual);</div>
+<div class="line">}</div>
+<div class="ttc" id="atetris_8c_html_aaf4095c9b2ba3b00995bac973f037a2d"><div class="ttname"><a href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a></div><div class="ttdeci">void inicializarSistemaExpert(SistemaExpert *sistemaPtr)</div><div class="ttdoc">Inicializa o sistema Expert com valores padrão.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00178">tetris.c:178</a></div></div>
+<div class="ttc" id="atetris_8c_html_adeea4c9bfd48c9c3fe2e6be1687df862"><div class="ttname"><a href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a></div><div class="ttdeci">void processarJogadaExpert(Peca peca, int origem, SistemaExpert *sistemaPtr)</div><div class="ttdoc">Processa uma jogada completa no sistema Expert.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00408">tetris.c:408</a></div></div>
+</div><!-- fragment --><h2 class="doxsection"><a class="anchor" id="example_advanced"></a>
+Uso Avançado com Estratégia Expert</h2>
+<div class="fragment"><div class="line"><span class="comment">// Estratégia avançada com análise de combos</span></div>
+<div class="line">SistemaExpert expert;</div>
+<div class="line">FilaCircular fila;</div>
+<div class="line">PilhaReserva pilha;</div>
+<div class="line"> </div>
+<div class="line"><a class="code hl_function" href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a>(&amp;expert);</div>
+<div class="line">inicializarFilaCircular(&amp;fila);</div>
+<div class="line">inicializarPilhaReserva(&amp;pilha);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Simulação de jogadas estratégicas</span></div>
+<div class="line"><span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 10; i++) {</div>
+<div class="line">    Peca novaPeca = gerarNovaPeca();</div>
+<div class="line">    inserirPecaNaFila(&amp;fila, novaPeca);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (!verificarFilaVazia(&amp;fila)) {</div>
+<div class="line">        Peca pecaJogada = removerPecaDaFila(&amp;fila);</div>
+<div class="line">        <a class="code hl_function" href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a>(pecaJogada, 1, &amp;expert);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Verificar progressão de nível</span></div>
+<div class="line">        <span class="keywordflow">if</span> (<a class="code hl_function" href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a>(&amp;expert)) {</div>
+<div class="line">            printf(<span class="stringliteral">&quot;NÍVEL UP! Agora no nível %d\n&quot;</span>, expert.nivelAtual);</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Exibir estatísticas em tempo real</span></div>
+<div class="line">        <span class="keywordflow">if</span> (expert.comboAtual &gt; 3) {</div>
+<div class="line">            printf(<span class="stringliteral">&quot;COMBO INCRÍVEL: %dx multiplicador!\n&quot;</span>, </div>
+<div class="line">                   expert.multiplicadorAtual);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Exibir relatório final</span></div>
+<div class="line">exibirEstatisticasExpert(&amp;expert);</div>
+<div class="ttc" id="atetris_8c_html_a6165ae6c43b73bd06d2efbe452b039aa"><div class="ttname"><a href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a></div><div class="ttdeci">int verificarProgressaoNivel(SistemaExpert *sistemaPtr)</div><div class="ttdoc">Verifica e processa progressão de nível.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00354">tetris.c:354</a></div></div>
+</div><!-- fragment --><h1 class="doxsection"><a class="anchor" id="performance_sec"></a>
+Otimizações de Performance</h1>
+<p>O sistema Expert implementa várias otimizações:</p><ul>
+<li>Cálculo de pontuação em O(1)</li>
+<li>Detecção de combos com cache de último tipo</li>
+<li>Progressão de nível com limites pré-calculados</li>
+<li>Estatísticas incrementais para evitar recálculos</li>
+</ul>
+<h1 class="doxsection"><a class="anchor" id="achievements_sec"></a>
+Sistema de Conquistas</h1>
+<p>O sistema inclui conquistas desbloqueáveis:</p><ul>
+<li>Combo Master: 5+ combos consecutivos</li>
+<li>Speed Runner: Nível 5 em menos de 100 jogadas</li>
+<li>Perfectionist: 90%+ de eficiência na reserva</li>
+<li>Expert Player: Alcançar nível máximo (10)</li>
+</ul>
+<p>/* ═══════════════════════════════════════════════════════════════════════════════ FUNÇÕES DO SISTEMA EXPERT - NÍVEL EXPERT ═══════════════════════════════════════════════════════════════════════════════ </p>
+</div></div><!-- PageDoc -->
+<a href="doxygen_crawl.html"></a>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

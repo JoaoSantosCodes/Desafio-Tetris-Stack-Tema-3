@@ -1,0 +1,1461 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tetris Stack - Nível Adventurer: C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Tetris Stack - Nível Adventurer<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Avançado de Gerenciamento de Peças Tetris</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+</div><!-- top -->
+<div id="doc-content">
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+<div class="header">
+  <div class="headertitle"><div class="title">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</div></div>
+</div><!--header-->
+<div class="contents">
+<p>Exibe estatísticas avançadas do sistema Expert.</p>
+<p>Exibe estatísticas avançadas do sistema ExpertInterface visual aprimorada que apresenta:</p><ul>
+<li>Pontuação e progressão com barras de progresso</li>
+<li>Combos e sequências com indicadores visuais</li>
+<li>Estatísticas detalhadas por tipo de peça</li>
+<li>Métricas de eficiência e performance</li>
+<li>Sistema de conquistas e marcos</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema ExpertOtimiza e valida o sistema Expert</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Realiza verificações de integridade e otimizações:</p><ul>
+<li>Valida consistência dos dados</li>
+<li>Otimiza cálculos de eficiência</li>
+<li>Ajusta parâmetros de dificuldade</li>
+<li>Corrige valores inconsistentes</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>1 se otimização bem-sucedida, 0 caso contrário</dd></dl>
+<p>Gera relatório detalhado do sistema Expert</p>
+<p>Cria um relatório completo com:</p><ul>
+<li>Análise de performance</li>
+<li>Recomendações estratégicas</li>
+<li>Estatísticas comparativas</li>
+<li>Projeções de melhoria</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Estrutura que representa uma peça individual do Tetris</p>
+<p>Cada peça possui duas propriedades fundamentais: • tipo: Caractere que define o formato geométrico da peça • id: Identificador numérico único para rastreamento</p>
+<dl class="section note"><dt>Nota</dt><dd>Os tipos suportados são: 'I', 'O', 'T', 'L' </dd>
+<dd>
+Os IDs são gerados sequencialmente a partir de 1</dd></dl>
+<p>Estrutura que implementa uma fila circular para gerenciamento de peças</p>
+<p>A fila circular otimiza o uso de memória reutilizando posições do array. Mantém exatamente 5 peças em rotação constante, seguindo o padrão FIFO (First In, First Out - primeiro a entrar, primeiro a sair).</p>
+<p>Componentes da estrutura: • pecas[5]: Array fixo que armazena as 5 peças • indiceFrente: Aponta para a próxima peça a ser jogada • indiceTras: Aponta para a posição da última peça inserida • quantidadePecas: Contador atual de peças válidas (0 a 5)</p>
+<dl class="section note"><dt>Nota</dt><dd>A circularidade é implementada usando operação módulo (%) </dd>
+<dd>
+Quando cheia, novas inserções sobrescrevem as mais antigas</dd></dl>
+<p>Estrutura que implementa uma pilha linear para reserva estratégica</p>
+<p>A pilha de reserva permite armazenamento temporário de até 3 peças, seguindo o padrão LIFO (Last In, First Out - último a entrar, primeiro a sair). É utilizada para estratégias avançadas de gerenciamento de peças.</p>
+<p>Componentes da estrutura: • pecasReservadas[3]: Array linear para armazenamento das peças • indiceTopo: Índice do topo da pilha (-1 = vazia, 0-2 = posições válidas) • quantidadeReservada: Contador atual de peças reservadas (0 a 3)</p>
+<p>Operações principais: • Push (empilhar): Adiciona peça no topo, incrementa indiceTopo • Pop (desempilhar): Remove peça do topo, decrementa indiceTopo</p>
+<dl class="section note"><dt>Nota</dt><dd>O índice -1 indica pilha vazia </dd>
+<dd>
+Máximo de 3 peças podem ser armazenadas simultaneamente</dd></dl>
+<p>Estrutura para sistema de pontuação e estatísticas avançadas - Nível Expert</p>
+<p>Esta estrutura mantém todas as métricas de gameplay do Nível Expert, incluindo pontuação, combos, níveis de dificuldade e estatísticas detalhadas.</p>
+<p>Funcionalidades implementadas:</p><ul>
+<li>Sistema de pontuação com multiplicadores</li>
+<li>Detecção e contabilização de combos</li>
+<li>Progressão automática de níveis</li>
+<li>Estatísticas completas de performance</li>
+<li>Sistema de conquistas e marcos</li>
+</ul>
+<dl class="section author"><dt>Autor</dt><dd>João Santos </dd></dl>
+<dl class="section version"><dt>Versão</dt><dd>2.0 - Nível Expert</dd></dl>
+<p>&lt; Pontuação acumulada total do jogador</p>
+<p>&lt; Pontuação no nível atual (reset a cada nível)</p>
+<p>&lt; Multiplicador de pontos atual (1x-10x)</p>
+<p>&lt; Pontos ganhos na última jogada</p>
+<p>&lt; Sequência atual de combos consecutivos</p>
+<p>&lt; Maior sequência de combos alcançada</p>
+<p>&lt; Total de combos realizados na sessão</p>
+<p>&lt; Último tipo de peça jogada (para combos)</p>
+<p>&lt; Sequência atual do mesmo tipo de peça</p>
+<p>&lt; Nível de dificuldade atual (1-10)</p>
+<p>&lt; Pontos necessários para próximo nível</p>
+<p>&lt; Limite de pontos do nível atual</p>
+<p>&lt; Multiplicador de dificuldade (1.0-3.0)</p>
+<p>&lt; Total de peças jogadas na sessão</p>
+<p>&lt; Peças jogadas diretamente da fila</p>
+<p>&lt; Peças jogadas da pilha de reserva</p>
+<p>&lt; Total de peças reservadas na sessão</p>
+<p>&lt; Percentual de uso eficiente da reserva</p>
+<p>&lt; Contador de peças tipo 'I' jogadas</p>
+<p>&lt; Contador de peças tipo 'O' jogadas</p>
+<p>&lt; Contador de peças tipo 'T' jogadas</p>
+<p>&lt; Contador de peças tipo 'L' jogadas</p>
+<p>&lt; Tipo de peça mais utilizado</p>
+<p>&lt; Bitmask das conquistas alcançadas</p>
+<p>&lt; Contador de marcos especiais atingidos</p>
+<p>&lt; Maior pontuação já alcançada</p>
+<p>Contador global para gerar identificadores únicos e sequenciais</p>
+<p>Esta variável mantém o controle dos IDs atribuídos às peças: • Inicia em 1 para facilitar a contagem humana • É incrementada automaticamente a cada nova peça criada • Garante que cada peça tenha um identificador único durante toda a sessão • Permite rastreamento e estatísticas precisas do jogo</p>
+<dl class="section note"><dt>Nota</dt><dd>O valor nunca é decrementado, mantendo a unicidade dos IDs </dd>
+<dd>
+É utilizada pela função gerarNovaPeca() para atribuição automática</dd></dl>
+<p>Gera uma nova peça automaticamente com tipo aleatório e ID sequencial</p>
+<p>Esta função é responsável por criar novas peças para o jogo:</p><ol type="1">
+<li>Seleciona aleatoriamente um tipo de peça entre os disponíveis</li>
+<li>Atribui um ID único e sequencial</li>
+<li>Incrementa o contador global para próximas peças</li>
+</ol>
+<p>Tipos de peças disponíveis:</p><ul>
+<li>'I': Peça em linha reta (4 blocos)</li>
+<li>'O': Peça quadrada (2x2 blocos)</li>
+<li>'T': Peça em formato T</li>
+<li>'L': Peça em formato L</li>
+</ul>
+<dl class="section return"><dt>Retorna</dt><dd>Peca Nova peça gerada com tipo aleatório e ID único</dd></dl>
+<dl class="section note"><dt>Nota</dt><dd>A função utiliza rand() % 4 para seleção aleatória </dd>
+<dd>
+O ID é atribuído automaticamente pelo contadorIdGlobal </dd>
+<dd>
+Requer inicialização prévia do gerador aleatório com srand()</dd></dl>
+<dl class="section see"><dt>Veja também</dt><dd>contadorIdGlobal </dd>
+<dd>
+srand()</dd></dl>
+<div class="fragment"><div class="line"><span class="comment">// Inicializar gerador aleatório</span></div>
+<div class="line">srand(time(NULL));</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Gerar nova peça</span></div>
+<div class="line">Peca novaPeca = gerarNovaPeca();</div>
+<div class="line">printf(<span class="stringliteral">&quot;Peça gerada: %c%d\n&quot;</span>, novaPeca.tipo, novaPeca.id);</div>
+</div><!-- fragment --><div class="fragment"><div class="line"></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a0" name="a0"></a><a class="code hl_function" href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a>(SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    SISTEMA DE PONTUAÇÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;pontuacaoTotal = 0;          <span class="comment">// Pontuação acumulada desde o início</span></div>
+<div class="line">    sistemaPtr-&gt;pontuacaoNivel = 0;          <span class="comment">// Pontos no nível atual (reset a cada level up)</span></div>
+<div class="line">    sistemaPtr-&gt;multiplicadorAtual = 1;      <span class="comment">// Multiplicador base (aumenta com combos)</span></div>
+<div class="line">    sistemaPtr-&gt;pontosUltimaJogada = 0;      <span class="comment">// Cache dos pontos da última jogada</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    SISTEMA DE COMBOS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;comboAtual = 0;              <span class="comment">// Sequência atual de combos consecutivos</span></div>
+<div class="line">    sistemaPtr-&gt;melhorCombo = 0;             <span class="comment">// Recorde de combos em uma sequência</span></div>
+<div class="line">    sistemaPtr-&gt;totalCombos = 0;             <span class="comment">// Total de combos realizados na sessão</span></div>
+<div class="line">    sistemaPtr-&gt;ultimoTipoJogado = <span class="charliteral">&#39;\0&#39;</span>;     <span class="comment">// Cache do último tipo para detecção de combo</span></div>
+<div class="line">    sistemaPtr-&gt;sequenciaTipoAtual = 0;      <span class="comment">// Contador da sequência do mesmo tipo</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                   NÍVEIS DE DIFICULDADE</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;nivelAtual = 1;              <span class="comment">// Nível inicial (1-10)</span></div>
+<div class="line">    sistemaPtr-&gt;pontosParaProximoNivel = 1000; <span class="comment">// Pontos necessários para próximo nível</span></div>
+<div class="line">    sistemaPtr-&gt;limitePontosNivel = 1000;    <span class="comment">// Limite atual do nível (aumenta progressivamente)</span></div>
+<div class="line">    sistemaPtr-&gt;fatorDificuldade = 1.0;      <span class="comment">// Multiplicador de dificuldade (1.0-3.0)</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                  ESTATÍSTICAS AVANÇADAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;totalJogadas = 0;            <span class="comment">// Total de peças jogadas na sessão</span></div>
+<div class="line">    sistemaPtr-&gt;jogadasDaFila = 0;           <span class="comment">// Peças jogadas diretamente da fila</span></div>
+<div class="line">    sistemaPtr-&gt;jogadasDaPilha = 0;          <span class="comment">// Peças jogadas da pilha de reserva</span></div>
+<div class="line">    sistemaPtr-&gt;pecasReservadas = 0;         <span class="comment">// Total de peças reservadas</span></div>
+<div class="line">    sistemaPtr-&gt;eficienciaReserva = 0;       <span class="comment">// Percentual de uso eficiente da reserva</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                 ESTATÍSTICAS POR TIPO DE PEÇA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;contagemTipoI = 0;           <span class="comment">// Contador de peças tipo &#39;I&#39; (linha)</span></div>
+<div class="line">    sistemaPtr-&gt;contagemTipoO = 0;           <span class="comment">// Contador de peças tipo &#39;O&#39; (quadrado)</span></div>
+<div class="line">    sistemaPtr-&gt;contagemTipoT = 0;           <span class="comment">// Contador de peças tipo &#39;T&#39; (T-shape)</span></div>
+<div class="line">    sistemaPtr-&gt;contagemTipoL = 0;           <span class="comment">// Contador de peças tipo &#39;L&#39; (L-shape)</span></div>
+<div class="line">    sistemaPtr-&gt;tipoMaisJogado = <span class="charliteral">&#39;\0&#39;</span>;       <span class="comment">// Cache do tipo mais utilizado</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                 CONQUISTAS E MARCOS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;conquistasDesbloqueadas = 0; <span class="comment">// Bitmask das conquistas (0 = nenhuma)</span></div>
+<div class="line">    sistemaPtr-&gt;marcosAlcancados = 0;        <span class="comment">// Contador de marcos especiais</span></div>
+<div class="line">    sistemaPtr-&gt;recordePessoal = 0;          <span class="comment">// Maior pontuação já alcançada</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    SISTEMA DE CONQUISTAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;conquistasDesbloqueadas = 0;</div>
+<div class="line">    sistemaPtr-&gt;marcosAlcancados = 0;</div>
+<div class="line">    sistemaPtr-&gt;recordePessoal = 0;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> <a id="a1" name="a1"></a><a class="code hl_function" href="tetris_8c.html#a9e02dcf454b4b8d211118be482b21b49">calcularPontuacao</a>(<span class="keywordtype">char</span> tipoPeca, SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="keywordtype">int</span> pontosBase = 0;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//              PONTUAÇÃO BASE POR TIPO DE PEÇA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Cada tipo de peça tem valor diferente baseado na complexidade</span></div>
+<div class="line">    <span class="keywordflow">switch</span> (tipoPeca) {</div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;I&#39;</span>: pontosBase = 100; <span class="keywordflow">break</span>;  <span class="comment">// Linha - mais comum, menor valor</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;O&#39;</span>: pontosBase = 120; <span class="keywordflow">break</span>;  <span class="comment">// Quadrado - versátil, valor médio</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>: pontosBase = 150; <span class="keywordflow">break</span>;  <span class="comment">// T - estratégico, valor alto</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;L&#39;</span>: pontosBase = 180; <span class="keywordflow">break</span>;  <span class="comment">// L - mais complexo, maior valor</span></div>
+<div class="line">        <span class="keywordflow">default</span>:  pontosBase = 50;  <span class="keywordflow">break</span>;  <span class="comment">// Fallback para tipos inválidos</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                  APLICAÇÃO DE MULTIPLICADORES</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Fórmula: PontosBase × MultiplicadorCombo × FatorDificuldade</span></div>
+<div class="line">    <span class="keywordtype">int</span> pontosFinais = (int)(pontosBase * sistemaPtr-&gt;multiplicadorAtual * sistemaPtr-&gt;fatorDificuldade);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> pontosFinais;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> <a id="a2" name="a2"></a><a class="code hl_function" href="tetris_8c.html#a2905e073b3d5b998d159f5f17d0d1f9a">detectarCombo</a>(<span class="keywordtype">char</span> tipoPeca, SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="keywordtype">int</span> comboFormado = 0;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    VERIFICAÇÃO DE SEQUÊNCIA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;ultimoTipoJogado == tipoPeca) {</div>
+<div class="line">        <span class="comment">// Continua sequência do mesmo tipo de peça</span></div>
+<div class="line">        sistemaPtr-&gt;sequenciaTipoAtual++;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">//                   FORMAÇÃO DE COMBO</span></div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">// Combo é formado a partir de 3 peças iguais consecutivas</span></div>
+<div class="line">        <span class="keywordflow">if</span> (sistemaPtr-&gt;sequenciaTipoAtual &gt;= 3) {</div>
+<div class="line">            sistemaPtr-&gt;comboAtual++;           <span class="comment">// Incrementa combo atual</span></div>
+<div class="line">            sistemaPtr-&gt;totalCombos++;          <span class="comment">// Incrementa total de combos</span></div>
+<div class="line">            comboFormado = 1;                   <span class="comment">// Sinaliza que combo foi formado</span></div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">// Atualiza recorde de melhor combo da sessão</span></div>
+<div class="line">            <span class="keywordflow">if</span> (sistemaPtr-&gt;comboAtual &gt; sistemaPtr-&gt;melhorCombo) {</div>
+<div class="line">                sistemaPtr-&gt;melhorCombo = sistemaPtr-&gt;comboAtual;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">            <span class="comment">//                AUMENTO DO MULTIPLICADOR</span></div>
+<div class="line">            <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">            <span class="comment">// Multiplicador aumenta com combos (máximo 10x)</span></div>
+<div class="line">            <span class="keywordflow">if</span> (sistemaPtr-&gt;multiplicadorAtual &lt; 10) {</div>
+<div class="line">                sistemaPtr-&gt;multiplicadorAtual++;</div>
+<div class="line">            }</div>
+<div class="line">        }</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">//                    QUEBRA DE SEQUÊNCIA</span></div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">// Tipo diferente quebra a sequência - reset dos combos</span></div>
+<div class="line">        sistemaPtr-&gt;comboAtual = 0;             <span class="comment">// Zera combo atual</span></div>
+<div class="line">        sistemaPtr-&gt;sequenciaTipoAtual = 1;     <span class="comment">// Inicia nova sequência</span></div>
+<div class="line">        sistemaPtr-&gt;multiplicadorAtual = 1;     <span class="comment">// Reset multiplicador</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Atualiza cache do último tipo jogado para próxima verificação</span></div>
+<div class="line">    sistemaPtr-&gt;ultimoTipoJogado = tipoPeca;</div>
+<div class="line">    <span class="keywordflow">return</span> comboFormado;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> <a id="a3" name="a3"></a><a class="code hl_function" href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a>(SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    VERIFICAÇÃO DE PROGRESSÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Verifica se atingiu pontuação necessária para próximo nível</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;pontuacaoNivel &gt;= sistemaPtr-&gt;limitePontosNivel) {</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">//                    AVANÇO DE NÍVEL</span></div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        sistemaPtr-&gt;nivelAtual++;           <span class="comment">// Incrementa nível atual</span></div>
+<div class="line">        sistemaPtr-&gt;pontuacaoNivel = 0;     <span class="comment">// Reset pontuação do nível</span></div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">//                AJUSTE DE DIFICULDADE PROGRESSIVA</span></div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">// Aumenta dificuldade progressivamente (máximo 3.0x)</span></div>
+<div class="line">        <span class="keywordflow">if</span> (sistemaPtr-&gt;fatorDificuldade &lt; 3.0) {</div>
+<div class="line">            sistemaPtr-&gt;fatorDificuldade += 0.2;  <span class="comment">// Incremento de 20% por nível</span></div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">//              CÁLCULO EXPONENCIAL DO PRÓXIMO NÍVEL</span></div>
+<div class="line">        <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">        <span class="comment">// Fórmula: 1000 * nível² (progressão quadrática)</span></div>
+<div class="line">        <span class="comment">// Nível 1: 1.000 pts | Nível 2: 4.000 pts | Nível 3: 9.000 pts</span></div>
+<div class="line">        sistemaPtr-&gt;limitePontosNivel = 1000 * sistemaPtr-&gt;nivelAtual * sistemaPtr-&gt;nivelAtual;</div>
+<div class="line">        sistemaPtr-&gt;pontosParaProximoNivel = sistemaPtr-&gt;limitePontosNivel;</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordflow">return</span> 1; <span class="comment">// Confirmação: subiu de nível</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                ATUALIZAÇÃO DE PONTOS RESTANTES</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Calcula quantos pontos faltam para o próximo nível</span></div>
+<div class="line">    sistemaPtr-&gt;pontosParaProximoNivel = sistemaPtr-&gt;limitePontosNivel - sistemaPtr-&gt;pontuacaoNivel;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 0; <span class="comment">// Não houve progressão de nível</span></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> <a id="a4" name="a4"></a><a class="code hl_function" href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a>(Peca peca, <span class="keywordtype">int</span> origem, SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    CÁLCULO DE PONTUAÇÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Calcula pontuação considerando tipo, multiplicador e dificuldade</span></div>
+<div class="line">    <span class="keywordtype">int</span> pontos = <a class="code hl_function" href="tetris_8c.html#a9e02dcf454b4b8d211118be482b21b49">calcularPontuacao</a>(peca.tipo, sistemaPtr);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    DETECÇÃO DE COMBOS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Verifica se forma combo e ajusta multiplicador automaticamente</span></div>
+<div class="line">    <span class="keywordtype">int</span> combo = <a class="code hl_function" href="tetris_8c.html#a2905e073b3d5b998d159f5f17d0d1f9a">detectarCombo</a>(peca.tipo, sistemaPtr);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                 ATUALIZAÇÃO DE PONTUAÇÕES</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;pontosUltimaJogada = pontos;    <span class="comment">// Cache para exibição</span></div>
+<div class="line">    sistemaPtr-&gt;pontuacaoTotal += pontos;       <span class="comment">// Acumula pontuação total</span></div>
+<div class="line">    sistemaPtr-&gt;pontuacaoNivel += pontos;       <span class="comment">// Acumula pontos do nível</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                  ATUALIZAÇÃO DE RECORDE</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Verifica e atualiza recorde pessoal se necessário</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;pontuacaoTotal &gt; sistemaPtr-&gt;recordePessoal) {</div>
+<div class="line">        sistemaPtr-&gt;recordePessoal = sistemaPtr-&gt;pontuacaoTotal;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                ESTATÍSTICAS DE ORIGEM DAS JOGADAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    sistemaPtr-&gt;totalJogadas++;                 <span class="comment">// Incrementa total geral</span></div>
+<div class="line">    <span class="keywordflow">if</span> (origem == 1) {</div>
+<div class="line">        sistemaPtr-&gt;jogadasDaFila++;            <span class="comment">// Peça veio da fila</span></div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        sistemaPtr-&gt;jogadasDaPilha++;           <span class="comment">// Peça veio da pilha reserva</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//              CONTAGEM POR TIPO DE PEÇA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Incrementa contador específico do tipo jogado</span></div>
+<div class="line">    <span class="keywordflow">switch</span> (peca.tipo) {</div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;I&#39;</span>: sistemaPtr-&gt;contagemTipoI++; <span class="keywordflow">break</span>;  <span class="comment">// Linha</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;O&#39;</span>: sistemaPtr-&gt;contagemTipoO++; <span class="keywordflow">break</span>;  <span class="comment">// Quadrado</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;T&#39;</span>: sistemaPtr-&gt;contagemTipoT++; <span class="keywordflow">break</span>;  <span class="comment">// T-shape</span></div>
+<div class="line">        <span class="keywordflow">case</span> <span class="charliteral">&#39;L&#39;</span>: sistemaPtr-&gt;contagemTipoL++; <span class="keywordflow">break</span>;  <span class="comment">// L-shape</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//            DETERMINAÇÃO DO TIPO MAIS JOGADO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Algoritmo para encontrar o tipo com maior contagem</span></div>
+<div class="line">    <span class="keywordtype">int</span> maxContagem = 0;</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoI &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoI;</div>
+<div class="line">        sistemaPtr-&gt;tipoMaisJogado = <span class="charliteral">&#39;I&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoO &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoO;</div>
+<div class="line">        sistemaPtr-&gt;tipoMaisJogado = <span class="charliteral">&#39;O&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoT &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoT;</div>
+<div class="line">        sistemaPtr-&gt;tipoMaisJogado = <span class="charliteral">&#39;T&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoL &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoL;</div>
+<div class="line">        sistemaPtr-&gt;tipoMaisJogado = <span class="charliteral">&#39;L&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                 CÁLCULO DE EFICIÊNCIA DA RESERVA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Calcula percentual de uso eficiente da pilha de reserva</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;totalJogadas &gt; 0) {</div>
+<div class="line">        sistemaPtr-&gt;eficienciaReserva = (sistemaPtr-&gt;jogadasDaPilha * 100) / sistemaPtr-&gt;totalJogadas;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    VERIFICAÇÃO DE PROGRESSÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">// Verifica se houve progressão de nível após a jogada</span></div>
+<div class="line">    <a class="code hl_function" href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a>(sistemaPtr);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirEstatisticasExpert(SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    CABEÇALHO PRINCIPAL</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╔═══════════════════════════════════════════════════════════════════════════════╗\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                        🏆 ESTATÍSTICAS EXPERT - NÍVEL %2d                     ║\n&quot;</span>, sistemaPtr-&gt;nivelAtual);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╠═══════════════════════════════════════════════════════════════════════════════╣\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    PONTUAÇÃO E PROGRESSÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 📊 PONTUAÇÃO E PROGRESSÃO                                                     ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Pontuação Total: %8d pontos                                           ║\n&quot;</span>, sistemaPtr-&gt;pontuacaoTotal);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Barra de progresso do nível</span></div>
+<div class="line">    <span class="keywordtype">int</span> progresso = (sistemaPtr-&gt;pontuacaoNivel * 20) / sistemaPtr-&gt;limitePontosNivel;</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Progresso do Nível: [&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 20; i++) {</div>
+<div class="line">        printf(i &lt; progresso ? <span class="stringliteral">&quot;█&quot;</span> : <span class="stringliteral">&quot;░&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    printf(<span class="stringliteral">&quot;] %d%%                    ║\n&quot;</span>, (sistemaPtr-&gt;pontuacaoNivel * 100) / sistemaPtr-&gt;limitePontosNivel);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Pontuação do Nível: %d/%d pontos                                         ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;pontuacaoNivel, sistemaPtr-&gt;limitePontosNivel);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Pontos para Próximo: %8d pontos                                       ║\n&quot;</span>, sistemaPtr-&gt;pontosParaProximoNivel);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Multiplicador Atual: %2dx                                                 ║\n&quot;</span>, sistemaPtr-&gt;multiplicadorAtual);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Fator de Dificuldade: %.1fx                                              ║\n&quot;</span>, sistemaPtr-&gt;fatorDificuldade);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Recorde Pessoal: %8d pontos                                           ║\n&quot;</span>, sistemaPtr-&gt;recordePessoal);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    COMBOS E SEQUÊNCIAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 🔥 COMBOS E SEQUÊNCIAS                                                        ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Combo Atual: %3d sequências                                              ║\n&quot;</span>, sistemaPtr-&gt;comboAtual);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Melhor Combo: %3d sequências                                             ║\n&quot;</span>, sistemaPtr-&gt;melhorCombo);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Total de Combos: %3d combos                                              ║\n&quot;</span>, sistemaPtr-&gt;totalCombos);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Último Tipo: %c | Sequência Atual: %2d peças                            ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;ultimoTipoJogado ? sistemaPtr-&gt;ultimoTipoJogado : <span class="charliteral">&#39;-&#39;</span>, </div>
+<div class="line">           sistemaPtr-&gt;sequenciaTipoAtual);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                  ESTATÍSTICAS POR TIPO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 🎯 ESTATÍSTICAS POR TIPO DE PEÇA                                             ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Tipo I (Linha):    %4d peças | Tipo O (Quadrado): %4d peças            ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;contagemTipoI, sistemaPtr-&gt;contagemTipoO);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Tipo T (T-Shape):  %4d peças | Tipo L (L-Shape):  %4d peças            ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;contagemTipoT, sistemaPtr-&gt;contagemTipoL);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Tipo Mais Jogado: %c                                                     ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;tipoMaisJogado ? sistemaPtr-&gt;tipoMaisJogado : <span class="charliteral">&#39;-&#39;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    EFICIÊNCIA DE JOGO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ ⚡ EFICIÊNCIA DE JOGO                                                         ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Total de Jogadas: %4d peças                                              ║\n&quot;</span>, sistemaPtr-&gt;totalJogadas);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Fila: %4d peças | Pilha: %4d peças | Reservadas: %4d peças             ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;jogadasDaFila, sistemaPtr-&gt;jogadasDaPilha, sistemaPtr-&gt;pecasReservadas);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Barra de eficiência da reserva</span></div>
+<div class="line">    <span class="keywordtype">int</span> eficiencia = sistemaPtr-&gt;eficienciaReserva &gt; 100 ? 100 : sistemaPtr-&gt;eficienciaReserva;</div>
+<div class="line">    <span class="keywordtype">int</span> barrasEficiencia = eficiencia / 5; <span class="comment">// 20 barras máximo</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Eficiência Reserva: [&quot;</span>);</div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> i = 0; i &lt; 20; i++) {</div>
+<div class="line">        printf(i &lt; barrasEficiencia ? <span class="stringliteral">&quot;█&quot;</span> : <span class="stringliteral">&quot;░&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    printf(<span class="stringliteral">&quot;] %3d%%                    ║\n&quot;</span>, eficiencia);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    CONQUISTAS E MARCOS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 🏅 CONQUISTAS E MARCOS                                                        ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Conquistas: %2d desbloqueadas | Marcos: %2d alcançados                   ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;conquistasDesbloqueadas, sistemaPtr-&gt;marcosAlcancados);</div>
+<div class="line"><span class="keywordtype">int</span> otimizarSistemaExpert(SistemaExpert* sistemaPtr) {</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr == NULL) <span class="keywordflow">return</span> 0;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    VALIDAÇÃO DE INTEGRIDADE</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Corrigir valores negativos ou inconsistentes</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;pontuacaoTotal &lt; 0) sistemaPtr-&gt;pontuacaoTotal = 0;</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;pontuacaoNivel &lt; 0) sistemaPtr-&gt;pontuacaoNivel = 0;</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;multiplicadorAtual &lt; 1) sistemaPtr-&gt;multiplicadorAtual = 1;</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;multiplicadorAtual &gt; 10) sistemaPtr-&gt;multiplicadorAtual = 10;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Validar nível atual</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;nivelAtual &lt; 1) sistemaPtr-&gt;nivelAtual = 1;</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;nivelAtual &gt; 10) sistemaPtr-&gt;nivelAtual = 10;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    OTIMIZAÇÃO DE CÁLCULOS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Recalcular eficiência da reserva</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;totalJogadas &gt; 0) {</div>
+<div class="line">        <span class="keywordtype">int</span> usoReserva = (sistemaPtr-&gt;jogadasDaPilha * 100) / sistemaPtr-&gt;totalJogadas;</div>
+<div class="line">        sistemaPtr-&gt;eficienciaReserva = usoReserva &gt; 100 ? 100 : usoReserva;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Determinar tipo mais jogado</span></div>
+<div class="line">    <span class="keywordtype">int</span> maxContagem = 0;</div>
+<div class="line">    <span class="keywordtype">char</span> tipoMax = <span class="charliteral">&#39;I&#39;</span>;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoI &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoI;</div>
+<div class="line">        tipoMax = <span class="charliteral">&#39;I&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoO &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoO;</div>
+<div class="line">        tipoMax = <span class="charliteral">&#39;O&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoT &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoT;</div>
+<div class="line">        tipoMax = <span class="charliteral">&#39;T&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;contagemTipoL &gt; maxContagem) {</div>
+<div class="line">        maxContagem = sistemaPtr-&gt;contagemTipoL;</div>
+<div class="line">        tipoMax = <span class="charliteral">&#39;L&#39;</span>;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    sistemaPtr-&gt;tipoMaisJogado = tipoMax;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    AJUSTES DE DIFICULDADE</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Ajustar fator de dificuldade baseado no nível</span></div>
+<div class="line">    sistemaPtr-&gt;fatorDificuldade = 1.0 + (sistemaPtr-&gt;nivelAtual - 1) * 0.2;</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;fatorDificuldade &gt; 3.0) sistemaPtr-&gt;fatorDificuldade = 3.0;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Atualizar recorde pessoal</span></div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;pontuacaoTotal &gt; sistemaPtr-&gt;recordePessoal) {</div>
+<div class="line">        sistemaPtr-&gt;recordePessoal = sistemaPtr-&gt;pontuacaoTotal;</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 1; <span class="comment">// Otimização bem-sucedida</span></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> gerarRelatorioExpert(SistemaExpert* sistemaPtr) {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╔═══════════════════════════════════════════════════════════════════════════════╗\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                        📊 RELATÓRIO EXPERT DETALHADO                         ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╠═══════════════════════════════════════════════════════════════════════════════╣\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    ANÁLISE DE PERFORMANCE</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 🎯 ANÁLISE DE PERFORMANCE                                                     ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Calcular média de pontos por jogada</span></div>
+<div class="line">    <span class="keywordtype">double</span> mediaPontos = sistemaPtr-&gt;totalJogadas &gt; 0 ? </div>
+<div class="line">        (double)sistemaPtr-&gt;pontuacaoTotal / sistemaPtr-&gt;totalJogadas : 0.0;</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Média de Pontos/Jogada: %.2f pontos                                      ║\n&quot;</span>, mediaPontos);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Taxa de Combo: %.1f%% (combos/jogadas)                                   ║\n&quot;</span>, </div>
+<div class="line">           sistemaPtr-&gt;totalJogadas &gt; 0 ? </div>
+<div class="line">           (sistemaPtr-&gt;totalCombos * 100.0) / sistemaPtr-&gt;totalJogadas : 0.0);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Análise de distribuição de peças</span></div>
+<div class="line">    <span class="keywordtype">int</span> totalPecasTipo = sistemaPtr-&gt;contagemTipoI + sistemaPtr-&gt;contagemTipoO + </div>
+<div class="line">                        sistemaPtr-&gt;contagemTipoT + sistemaPtr-&gt;contagemTipoL;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (totalPecasTipo &gt; 0) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║   • Distribuição: I=%.1f%% O=%.1f%% T=%.1f%% L=%.1f%%                        ║\n&quot;</span>,</div>
+<div class="line">               (sistemaPtr-&gt;contagemTipoI * 100.0) / totalPecasTipo,</div>
+<div class="line">               (sistemaPtr-&gt;contagemTipoO * 100.0) / totalPecasTipo,</div>
+<div class="line">               (sistemaPtr-&gt;contagemTipoT * 100.0) / totalPecasTipo,</div>
+<div class="line">               (sistemaPtr-&gt;contagemTipoL * 100.0) / totalPecasTipo);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    RECOMENDAÇÕES ESTRATÉGICAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 💡 RECOMENDAÇÕES ESTRATÉGICAS                                                 ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;eficienciaReserva &lt; 30) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║   • Use mais a reserva para otimizar sequências                              ║\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;melhorCombo &lt; 5) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║   • Foque em formar combos maiores para multiplicadores                      ║\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    <span class="keywordflow">if</span> (sistemaPtr-&gt;multiplicadorAtual &lt; 3) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║   • Mantenha sequências para aumentar multiplicadores                        ║\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Próximo marco: %d pontos para nível %d                                   ║\n&quot;</span>,</div>
+<div class="line">           sistemaPtr-&gt;pontosParaProximoNivel, sistemaPtr-&gt;nivelAtual + 1);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    PROJEÇÕES DE MELHORIA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║ 📈 PROJEÇÕES DE MELHORIA                                                      ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordtype">int</span> jogadasParaProximoNivel = sistemaPtr-&gt;pontosParaProximoNivel / </div>
+<div class="line">                                 (mediaPontos &gt; 0 ? (int)mediaPontos : 1);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Jogadas estimadas para próximo nível: ~%d peças                         ║\n&quot;</span>, </div>
+<div class="line">           jogadasParaProximoNivel);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║   • Potencial de melhoria: %dx com combos otimizados                         ║\n&quot;</span>, </div>
+<div class="line">           10 - sistemaPtr-&gt;multiplicadorAtual);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                                               ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╚═══════════════════════════════════════════════════════════════════════════════╝\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"> </div>
+<div class="line"> * <span class="comment">// Inicialização das estruturas</span></div>
+<div class="line"> * FilaCircular fila;</div>
+<div class="line"> * PilhaReserva pilha;</div>
+<div class="line"> * inicializarFilaCircular(&amp;fila);</div>
+<div class="line"> * inicializarPilhaReserva(&amp;pilha);</div>
+<div class="line"> * </div>
+<div class="line"> * <span class="comment">// Geração e inserção de peça</span></div>
+<div class="line"> * Peca novaPeca = gerarNovaPeca();</div>
+<div class="line"> * inserirPecaNaFila(&amp;fila, novaPeca);</div>
+<div class="line"> * </div>
+<div class="line"> * <span class="comment">// Jogada de peça</span></div>
+<div class="line"> * <span class="keywordflow">if</span> (!verificarFilaVazia(&amp;fila)) {</div>
+<div class="line"> *     Peca pecaJogada = removerPecaDaFila(&amp;fila);</div>
+<div class="line"> *     printf(<span class="stringliteral">&quot;Jogou peça %c%d\n&quot;</span>, pecaJogada.tipo, pecaJogada.id);</div>
+<div class="line"> * }</div>
+<div class="line"> * <span class="keyword">@end</span>code</div>
+<div class="line"> * </div>
+<div class="line"> * @subsection example_advanced Uso Avançado com Reserva</div>
+<div class="line"> * </div>
+<div class="line"> * @code{.c}</div>
+<div class="line"> * <span class="comment">// Reservar peça estratégica</span></div>
+<div class="line"> * <span class="keywordflow">if</span> (!verificarFilaVazia(&amp;fila) &amp;&amp; !verificarPilhaCheia(&amp;pilha)) {</div>
+<div class="line"> *     Peca pecaReservada = removerPecaDaFila(&amp;fila);</div>
+<div class="line"> *     reservarPecaNaPilha(&amp;pilha, pecaReservada);</div>
+<div class="line"> * }</div>
+<div class="line"> * </div>
+<div class="line"> * <span class="comment">// Usar peça reservada quando necessário</span></div>
+<div class="line"> * <span class="keywordflow">if</span> (!verificarPilhaVazia(&amp;pilha)) {</div>
+<div class="line"> *     Peca pecaUsada = usarPecaDaPilha(&amp;pilha);</div>
+<div class="line"> *     printf(<span class="stringliteral">&quot;Usou peça reservada %c%d\n&quot;</span>, pecaUsada.tipo, pecaUsada.id);</div>
+<div class="line"> * }</div>
+<div class="line"> * <span class="keyword">@end</span>code</div>
+<div class="line"> * </div>
+<div class="line"> * @section compilation_sec Compilação e Execução</div>
+<div class="line"> * </div>
+<div class="line"> * Para compilar o sistema:</div>
+<div class="line"> * @code</div>
+<div class="line"> * gcc -o tetris tetris.c -std=c99 -Wall -Wextra</div>
+<div class="line"> * <span class="keyword">@end</span>code</div>
+<div class="line"> * </div>
+<div class="line"> * Para executar:</div>
+<div class="line"> * @code</div>
+<div class="line"> * ./tetris</div>
+<div class="line"> * <span class="keyword">@end</span>code</div>
+<div class="line"> * </div>
+<div class="line"> * @author João Santos</div>
+<div class="line"> * @copyright 2024 Universidade Estácio de Sá</div>
+<div class="line"> */</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * ╔══════════════════════════════════════════════════════════════════════════════╗</span></div>
+<div class="line"><span class="comment"> * ║                          TETRIS STACK - NÍVEL ADVENTURER                    ║</span></div>
+<div class="line"><span class="comment"> * ║                    Sistema Avançado de Controle de Peças                    ║</span></div>
+<div class="line"><span class="comment"> * ╠══════════════════════════════════════════════════════════════════════════════╣</span></div>
+<div class="line"><span class="comment"> * ║ Desenvolvedor: João Santos                                                   ║</span></div>
+<div class="line"><span class="comment"> * ║ Instituição: Universidade Estácio                                           ║</span></div>
+<div class="line"><span class="comment"> * ║ Disciplina: Estruturas de Dados                                             ║</span></div>
+<div class="line"><span class="comment"> * ║ Versão: 2.0 - Nível Adventurer                                              ║</span></div>
+<div class="line"><span class="comment"> * ║ Data de Criação: Janeiro 2025                                               ║</span></div>
+<div class="line"><span class="comment"> * ║ Última Atualização: Janeiro 2025                                            ║</span></div>
+<div class="line"><span class="comment"> * ║                                                                              ║</span></div>
+<div class="line"><span class="comment"> * ║ DESCRIÇÃO DO PROJETO:                                                        ║</span></div>
+<div class="line"><span class="comment"> * ║ Este programa implementa o Nível Adventurer do desafio Tetris Stack,        ║</span></div>
+<div class="line"><span class="comment"> * ║ expandindo o sistema básico com uma pilha de reserva para estratégias       ║</span></div>
+<div class="line"><span class="comment"> * ║ avançadas de gerenciamento de peças.                                        ║</span></div>
+<div class="line"><span class="comment"> * ║                                                                              ║</span></div>
+<div class="line"><span class="comment"> * ║ FUNCIONALIDADES IMPLEMENTADAS:                                               ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Fila circular com capacidade fixa de 5 peças (FIFO)                      ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Pilha de reserva linear com capacidade para 3 peças (LIFO)               ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Geração automática de peças com 4 tipos diferentes                       ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Sistema de identificação única e sequencial                               ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Interface interativa com menu contextual                                  ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Visualização simultânea de ambas as estruturas                           ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Operações integradas entre fila e pilha                                  ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Validação completa de estados e operações                                ║</span></div>
+<div class="line"><span class="comment"> * ║ ✓ Feedback inteligente com dicas para o usuário                            ║</span></div>
+<div class="line"><span class="comment"> * ║                                                                              ║</span></div>
+<div class="line"><span class="comment"> * ║ TIPOS DE PEÇAS SUPORTADOS:                                                  ║</span></div>
+<div class="line"><span class="comment"> * ║ • &#39;I&#39; - Peça em linha (4 blocos em linha reta)                             ║</span></div>
+<div class="line"><span class="comment"> * ║ • &#39;O&#39; - Peça quadrada (2x2 blocos)                                         ║</span></div>
+<div class="line"><span class="comment"> * ║ • &#39;T&#39; - Peça em formato T (3 blocos + 1 central)                           ║</span></div>
+<div class="line"><span class="comment"> * ║ • &#39;L&#39; - Peça em formato L (3 blocos + 1 perpendicular)                     ║</span></div>
+<div class="line"><span class="comment"> * ╚══════════════════════════════════════════════════════════════════════════════╝</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment">//                              BIBLIOTECAS NECESSÁRIAS</span></div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"> </div>
+<div class="line"><span class="preprocessor">#include &lt;stdio.h&gt;</span>   <span class="comment">// Funções de entrada/saída (printf, scanf, getchar)</span></div>
+<div class="line"><span class="preprocessor">#include &lt;stdlib.h&gt;</span>  <span class="comment">// Funções utilitárias (rand, srand, exit)</span></div>
+<div class="line"><span class="preprocessor">#include &lt;time.h&gt;</span>    <span class="comment">// Funções de tempo (time para inicialização aleatória)</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment">//                           DEFINIÇÕES DE ESTRUTURAS DE DADOS</span></div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">    <span class="keywordtype">char</span> tipo;  <span class="comment">// Tipo geométrico: &#39;I&#39;=linha, &#39;O&#39;=quadrado, &#39;T&#39;=T, &#39;L&#39;=L</span></div>
+<div class="line">    <span class="keywordtype">int</span> id;     <span class="comment">// Identificador único e sequencial (1, 2, 3, ...)</span></div>
+<div class="line">} Peca;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">    Peca pecas[5];          <span class="comment">// Array circular com capacidade fixa de 5 peças</span></div>
+<div class="line">    <span class="keywordtype">int</span> indiceFrente;       <span class="comment">// Índice da frente (próxima peça a jogar)</span></div>
+<div class="line">    <span class="keywordtype">int</span> indiceTras;         <span class="comment">// Índice do final (última peça inserida)</span></div>
+<div class="line">    <span class="keywordtype">int</span> quantidadePecas;    <span class="comment">// Contador atual de peças válidas (0-5)</span></div>
+<div class="line">} FilaCircular;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">    Peca pecasReservadas[3];    <span class="comment">// Array linear para até 3 peças reservadas</span></div>
+<div class="line">    <span class="keywordtype">int</span> indiceTopo;             <span class="comment">// Índice do topo (-1=vazia, 0-2=válido)</span></div>
+<div class="line">    <span class="keywordtype">int</span> quantidadeReservada;    <span class="comment">// Contador atual de peças reservadas (0-3)</span></div>
+<div class="line">} PilhaReserva;</div>
+<div class="line"></div>
+<div class="line"><span class="keyword">typedef</span> <span class="keyword">struct </span>{</div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    SISTEMA DE PONTUAÇÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordtype">int</span> pontuacaoTotal;          </div>
+<div class="line">    <span class="keywordtype">int</span> pontuacaoNivel;          </div>
+<div class="line">    <span class="keywordtype">int</span> multiplicadorAtual;      </div>
+<div class="line">    <span class="keywordtype">int</span> pontosUltimaJogada;      </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    SISTEMA DE COMBOS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordtype">int</span> comboAtual;              </div>
+<div class="line">    <span class="keywordtype">int</span> melhorCombo;             </div>
+<div class="line">    <span class="keywordtype">int</span> totalCombos;             </div>
+<div class="line">    <span class="keywordtype">char</span> ultimoTipoJogado;       </div>
+<div class="line">    <span class="keywordtype">int</span> sequenciaTipoAtual;      </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                   NÍVEIS DE DIFICULDADE</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordtype">int</span> nivelAtual;              </div>
+<div class="line">    <span class="keywordtype">int</span> pontosParaProximoNivel;  </div>
+<div class="line">    <span class="keywordtype">int</span> limitePontosNivel;       </div>
+<div class="line">    <span class="keywordtype">double</span> fatorDificuldade;     </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                  ESTATÍSTICAS AVANÇADAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordtype">int</span> totalJogadas;            </div>
+<div class="line">    <span class="keywordtype">int</span> jogadasDaFila;           </div>
+<div class="line">    <span class="keywordtype">int</span> jogadasDaPilha;          </div>
+<div class="line">    <span class="keywordtype">int</span> pecasReservadas;         </div>
+<div class="line">    <span class="keywordtype">int</span> eficienciaReserva;       </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                 ESTATÍSTICAS POR TIPO DE PEÇA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordtype">int</span> contagemTipoI;           </div>
+<div class="line">    <span class="keywordtype">int</span> contagemTipoO;           </div>
+<div class="line">    <span class="keywordtype">int</span> contagemTipoT;           </div>
+<div class="line">    <span class="keywordtype">int</span> contagemTipoL;           </div>
+<div class="line">    <span class="keywordtype">char</span> tipoMaisJogado;         </div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                    SISTEMA DE CONQUISTAS</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="keywordtype">int</span> conquistasDesbloqueadas; </div>
+<div class="line">    <span class="keywordtype">int</span> marcosAlcancados;        </div>
+<div class="line">    <span class="keywordtype">int</span> recordePessoal;          </div>
+<div class="line">    </div>
+<div class="line">} SistemaExpert;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment">//                              VARIÁVEIS GLOBAIS</span></div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> contadorIdGlobal = 1;</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> *                         PROTÓTIPOS DAS FUNÇÕES EXPERT</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// Funções do Sistema Expert</span></div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a>(SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="tetris_8c.html#a9e02dcf454b4b8d211118be482b21b49">calcularPontuacao</a>(<span class="keywordtype">char</span> tipoPeca, SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="tetris_8c.html#a2905e073b3d5b998d159f5f17d0d1f9a">detectarCombo</a>(<span class="keywordtype">char</span> tipoPeca, SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">int</span> <a class="code hl_function" href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a>(SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">void</span> <a class="code hl_function" href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a>(Peca peca, <span class="keywordtype">int</span> origem, SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">void</span> exibirEstatisticasExpert(SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">int</span> otimizarSistemaExpert(SistemaExpert* sistemaPtr);</div>
+<div class="line"><span class="keywordtype">void</span> gerarRelatorioExpert(SistemaExpert* sistemaPtr);</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> *                         FUNÇÕES DE GERAÇÃO DE PEÇAS</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"></div>
+<div class="line">Peca gerarNovaPeca() {</div>
+<div class="line">    Peca pecaNova;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Array com os tipos de peças disponíveis no Tetris clássico</span></div>
+<div class="line">    <span class="keywordtype">char</span> tiposDisponiveis[] = {<span class="charliteral">&#39;I&#39;</span>, <span class="charliteral">&#39;O&#39;</span>, <span class="charliteral">&#39;T&#39;</span>, <span class="charliteral">&#39;L&#39;</span>};</div>
+<div class="line">    <span class="keyword">const</span> <span class="keywordtype">int</span> quantidadeTipos = 4;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Seleciona tipo aleatório usando módulo para garantir índice válido</span></div>
+<div class="line">    <span class="keywordtype">int</span> indiceAleatorio = rand() % quantidadeTipos;</div>
+<div class="line">    pecaNova.tipo = tiposDisponiveis[indiceAleatorio];</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Atribui ID sequencial único e incrementa contador</span></div>
+<div class="line">    pecaNova.id = contadorIdGlobal++;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> pecaNova;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment">//                         FUNÇÕES DE CONTROLE DA FILA CIRCULAR</span></div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> inicializarFilaCircular(FilaCircular* filaPtr) {</div>
+<div class="line">    <span class="comment">// Inicializa índices de controle da fila circular</span></div>
+<div class="line">    filaPtr-&gt;indiceFrente = 0;           <span class="comment">// Primeira posição do array (próxima a jogar)</span></div>
+<div class="line">    filaPtr-&gt;indiceTras = -1;            <span class="comment">// Será incrementado para 0 na primeira inserção</span></div>
+<div class="line">    filaPtr-&gt;quantidadePecas = 0;        <span class="comment">// Contador inicia zerado</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Preenche a fila com 5 peças iniciais para garantir disponibilidade</span></div>
+<div class="line">    <span class="keywordflow">for</span> (<span class="keywordtype">int</span> indiceLoop = 0; indiceLoop &lt; 5; indiceLoop++) {</div>
+<div class="line">        <span class="comment">// Calcula próxima posição circular para inserção (0, 1, 2, 3, 4)</span></div>
+<div class="line">        filaPtr-&gt;indiceTras = (filaPtr-&gt;indiceTras + 1) % 5;</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Gera nova peça aleatória e insere na posição calculada</span></div>
+<div class="line">        filaPtr-&gt;pecas[filaPtr-&gt;indiceTras] = gerarNovaPeca();</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Incrementa contador de peças válidas na fila</span></div>
+<div class="line">        filaPtr-&gt;quantidadePecas++;</div>
+<div class="line">    }</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> verificarFilaCheia(FilaCircular* filaPtr) {</div>
+<div class="line">    <span class="keywordflow">return</span> filaPtr-&gt;quantidadePecas == 5;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> verificarFilaVazia(FilaCircular* filaPtr) {</div>
+<div class="line">    <span class="keywordflow">return</span> filaPtr-&gt;quantidadePecas == 0;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> inserirPecaNaFila(FilaCircular* filaPtr, Peca pecaParaInserir) {</div>
+<div class="line">    <span class="comment">// Validação de capacidade: impede overflow da estrutura</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarFilaCheia(filaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;⚠️  ERRO: Tentativa de inserir peça em fila cheia!\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;  <span class="comment">// Falha silenciosa para manter estabilidade</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Calcula próxima posição circular (0→1→2→3→4→0...)</span></div>
+<div class="line">    filaPtr-&gt;indiceTras = (filaPtr-&gt;indiceTras + 1) % 5;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Insere a peça na posição calculada</span></div>
+<div class="line">    filaPtr-&gt;pecas[filaPtr-&gt;indiceTras] = pecaParaInserir;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Atualiza contador de peças válidas na fila</span></div>
+<div class="line">    filaPtr-&gt;quantidadePecas++;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">Peca removerPecaDaFila(FilaCircular* filaPtr) {</div>
+<div class="line">    <span class="comment">// Peça vazia para retorno em caso de erro ou fila vazia</span></div>
+<div class="line">    Peca pecaVazia = {<span class="charliteral">&#39; &#39;</span>, 0};</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Validação de disponibilidade: impede underflow da estrutura</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarFilaVazia(filaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;⚠️  ERRO: Tentativa de remover peça de fila vazia!\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> pecaVazia;  <span class="comment">// Retorna peça inválida para sinalizar erro</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Salva a peça que será removida da frente da fila</span></div>
+<div class="line">    Peca pecaRemovida = filaPtr-&gt;pecas[filaPtr-&gt;indiceFrente];</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Atualiza índice da frente para próxima posição circular (0→1→2→3→4→0...)</span></div>
+<div class="line">    filaPtr-&gt;indiceFrente = (filaPtr-&gt;indiceFrente + 1) % 5;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Decrementa contador de peças válidas na fila</span></div>
+<div class="line">    filaPtr-&gt;quantidadePecas--;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> pecaRemovida;  <span class="comment">// Retorna a peça removida com sucesso</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment">//                         FUNÇÕES DE CONTROLE DA PILHA DE RESERVA</span></div>
+<div class="line"><span class="comment">// ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> inicializarPilhaReserva(PilhaReserva* pilhaPtr) {</div>
+<div class="line">    pilhaPtr-&gt;indiceTopo = -1;           <span class="comment">// -1 indica pilha vazia (convenção padrão)</span></div>
+<div class="line">    pilhaPtr-&gt;quantidadeReservada = 0;   <span class="comment">// Nenhuma peça reservada inicialmente</span></div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> verificarPilhaCheia(PilhaReserva* pilhaPtr) {</div>
+<div class="line">    <span class="keywordflow">return</span> pilhaPtr-&gt;quantidadeReservada == 3;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> verificarPilhaVazia(PilhaReserva* pilhaPtr) {</div>
+<div class="line">    <span class="keywordflow">return</span> pilhaPtr-&gt;quantidadeReservada == 0;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> reservarPecaNaPilha(PilhaReserva* pilhaPtr, Peca pecaParaReservar) {</div>
+<div class="line">    <span class="comment">// Validação de capacidade: impede overflow da estrutura</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarPilhaCheia(pilhaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;⚠️  ERRO: Tentativa de reservar peça em pilha cheia!\n&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;   A pilha de reserva já contém 3 peças (máximo permitido).\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span>;  <span class="comment">// Falha silenciosa para manter estabilidade</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Incrementa índice do topo (de -1 para 0 na primeira inserção)</span></div>
+<div class="line">    pilhaPtr-&gt;indiceTopo++;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Insere a peça na nova posição do topo</span></div>
+<div class="line">    pilhaPtr-&gt;pecasReservadas[pilhaPtr-&gt;indiceTopo] = pecaParaReservar;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Atualiza contador de peças reservadas na pilha</span></div>
+<div class="line">    pilhaPtr-&gt;quantidadeReservada++;</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line">Peca usarPecaDaPilha(PilhaReserva* pilhaPtr) {</div>
+<div class="line">    <span class="comment">// Peça vazia para retorno em caso de erro ou pilha vazia</span></div>
+<div class="line">    Peca pecaVazia = {<span class="charliteral">&#39; &#39;</span>, 0};</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Validação de disponibilidade: impede underflow da estrutura</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarPilhaVazia(pilhaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;⚠️  ERRO: Tentativa de usar peça de pilha vazia!\n&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;   Não há peças reservadas disponíveis para uso.\n&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">return</span> pecaVazia;  <span class="comment">// Retorna peça inválida para sinalizar erro</span></div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Salva a peça do topo que será removida</span></div>
+<div class="line">    Peca pecaUsada = pilhaPtr-&gt;pecasReservadas[pilhaPtr-&gt;indiceTopo];</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Decrementa índice do topo (volta para -1 se era a última peça)</span></div>
+<div class="line">    pilhaPtr-&gt;indiceTopo--;</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Decrementa contador de peças reservadas</span></div>
+<div class="line">    pilhaPtr-&gt;quantidadeReservada--;</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> pecaUsada;</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> *                         FUNÇÕES DE VISUALIZAÇÃO</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirEstadoDaFila(FilaCircular* filaPtr) {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n┌─────────────────────────────────────────────────────────────┐\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│                    🎮 FILA DE PEÇAS                         │\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│                                                             │\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│  Capacidade: 5 peças  │  Ocupação: %d/5  │  Status: %-6s │\n&quot;</span>, </div>
+<div class="line">           filaPtr-&gt;quantidadePecas, </div>
+<div class="line">           verificarFilaVazia(filaPtr) ? <span class="stringliteral">&quot;Vazia&quot;</span> : </div>
+<div class="line">           verificarFilaCheia(filaPtr) ? <span class="stringliteral">&quot;Cheia&quot;</span> : <span class="stringliteral">&quot;Ativa&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;├─────────────────────────────────────────────────────────────┤\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (verificarFilaVazia(filaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;│                     🔄 Fila vazia                           │\n&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;│              Gere peças para começar!                      │\n&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;│  Posição  │  ID   │  Tipo  │           Status             │\n&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;├───────────┼───────┼────────┼──────────────────────────────┤\n&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="keywordtype">int</span> indiceAtual = filaPtr-&gt;indiceFrente;</div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> contadorPecas = 0; contadorPecas &lt; filaPtr-&gt;quantidadePecas; contadorPecas++) {</div>
+<div class="line">            <span class="keywordtype">char</span>* statusPeca = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (contadorPecas == 0) statusPeca = <span class="stringliteral">&quot;← Próxima a jogar&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (contadorPecas == filaPtr-&gt;quantidadePecas - 1) statusPeca = <span class="stringliteral">&quot;← Última adicionada&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            printf(<span class="stringliteral">&quot;│     %d     │  %3d  │   %c    │  %-26s  │\n&quot;</span>, </div>
+<div class="line">                   contadorPecas + 1, </div>
+<div class="line">                   filaPtr-&gt;pecas[indiceAtual].id, </div>
+<div class="line">                   filaPtr-&gt;pecas[indiceAtual].tipo,</div>
+<div class="line">                   statusPeca);</div>
+<div class="line">            </div>
+<div class="line">            indiceAtual = (indiceAtual + 1) % 5;</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;└─────────────────────────────────────────────────────────────┘\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirEstadoDaPilha(PilhaReserva* pilhaPtr) {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n┌─────────────────────────────────────────────────────────────┐\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│                  📦 PILHA DE RESERVA                        │\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│                                                             │\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│  Capacidade: 3 peças  │  Ocupação: %d/3  │  Status: %-6s │\n&quot;</span>, </div>
+<div class="line">           pilhaPtr-&gt;quantidadeReservada, </div>
+<div class="line">           verificarPilhaVazia(pilhaPtr) ? <span class="stringliteral">&quot;Vazia&quot;</span> : </div>
+<div class="line">           verificarPilhaCheia(pilhaPtr) ? <span class="stringliteral">&quot;Cheia&quot;</span> : <span class="stringliteral">&quot;Ativa&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;├─────────────────────────────────────────────────────────────┤\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">if</span> (verificarPilhaVazia(pilhaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;│                    📦 Pilha vazia                           │\n&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;│             Reserve peças para usar depois!                │\n&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;│  Posição  │  ID   │  Tipo  │           Status             │\n&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;├───────────┼───────┼────────┼──────────────────────────────┤\n&quot;</span>);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Exibe da posição mais alta para a mais baixa (topo para base)</span></div>
+<div class="line">        <span class="keywordflow">for</span> (<span class="keywordtype">int</span> indicePilha = pilhaPtr-&gt;indiceTopo; indicePilha &gt;= 0; indicePilha--) {</div>
+<div class="line">            <span class="keywordtype">char</span>* statusPeca = <span class="stringliteral">&quot;&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">if</span> (indicePilha == pilhaPtr-&gt;indiceTopo) statusPeca = <span class="stringliteral">&quot;← Topo (próxima a usar)&quot;</span>;</div>
+<div class="line">            <span class="keywordflow">else</span> <span class="keywordflow">if</span> (indicePilha == 0) statusPeca = <span class="stringliteral">&quot;← Base da pilha&quot;</span>;</div>
+<div class="line">            </div>
+<div class="line">            printf(<span class="stringliteral">&quot;│     %d     │  %3d  │   %c    │  %-26s  │\n&quot;</span>, </div>
+<div class="line">                   indicePilha, </div>
+<div class="line">                   pilhaPtr-&gt;pecasReservadas[indicePilha].id, </div>
+<div class="line">                   pilhaPtr-&gt;pecasReservadas[indicePilha].tipo,</div>
+<div class="line">                   statusPeca);</div>
+<div class="line">        }</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;└─────────────────────────────────────────────────────────────┘\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirEstadoCompleto(FilaCircular* filaPtr, PilhaReserva* pilhaPtr) {</div>
+<div class="line">    <span class="comment">// Limpeza otimizada da tela para Windows</span></div>
+<div class="line">    system(<span class="stringliteral">&quot;cls&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Cabeçalho principal unificado</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;═══════════════════════════════════════════════════════════════════════════════\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;                           🎯 TETRIS STACK - NÍVEL ADVENTURER\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;═══════════════════════════════════════════════════════════════════════════════\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Reutilização das funções de exibição individuais (evita duplicação de código)</span></div>
+<div class="line">    exibirEstadoDaFila(filaPtr);</div>
+<div class="line">    exibirEstadoDaPilha(pilhaPtr);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Estatísticas consolidadas com cálculos otimizados</span></div>
+<div class="line">    <span class="keywordtype">int</span> totalPecasNoSistema = filaPtr-&gt;quantidadePecas + pilhaPtr-&gt;quantidadeReservada;</div>
+<div class="line">    <span class="keywordtype">int</span> espacosLivres = (5 - filaPtr-&gt;quantidadePecas) + (3 - pilhaPtr-&gt;quantidadeReservada);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n┌─────────────────────────────────────────────────────────────┐\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│                    📊 ESTATÍSTICAS CONSOLIDADAS             │\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;├─────────────────────────────────────────────────────────────┤\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│  Peças na fila: %d/5  │  Peças reservadas: %d/3           │\n&quot;</span>, </div>
+<div class="line">           filaPtr-&gt;quantidadePecas, pilhaPtr-&gt;quantidadeReservada);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│  Total no sistema: %d/8  │  Espaços livres: %d             │\n&quot;</span>, </div>
+<div class="line">           totalPecasNoSistema, espacosLivres);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;│  Próximo ID: %d  │  Eficiência: %.1f%%                   │\n&quot;</span>, </div>
+<div class="line">           contadorIdGlobal, (totalPecasNoSistema / 8.0) * 100);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;└─────────────────────────────────────────────────────────────┘\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirMenuPrincipal(FilaCircular* filaPtr, PilhaReserva* pilhaPtr) {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n╔═══════════════════════════════════════════════════════════════╗\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                    🎯 MENU PRINCIPAL                          ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                     NÍVEL EXPERT                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╠═══════════════════════════════════════════════════════════════╣\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Opção 1: Jogar peça da fila</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarFilaVazia(filaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  1️⃣  Jogar peça da fila           ❌ (Fila vazia)           ║\n&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  1️⃣  Jogar peça da fila           ✅ (Peça %c%d disponível) ║\n&quot;</span>,</div>
+<div class="line">               filaPtr-&gt;pecas[filaPtr-&gt;indiceFrente].tipo,</div>
+<div class="line">               filaPtr-&gt;pecas[filaPtr-&gt;indiceFrente].id);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Opção 2: Reservar peça da fila na pilha</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarFilaVazia(filaPtr) || verificarPilhaCheia(pilhaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  2️⃣  Reservar peça na pilha       ❌ &quot;</span>);</div>
+<div class="line">        <span class="keywordflow">if</span> (verificarFilaVazia(filaPtr)) printf(<span class="stringliteral">&quot;(Fila vazia)&quot;</span>);</div>
+<div class="line">        <span class="keywordflow">else</span> printf(<span class="stringliteral">&quot;(Pilha cheia)&quot;</span>);</div>
+<div class="line">        printf(<span class="stringliteral">&quot;        ║\n&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  2️⃣  Reservar peça na pilha       ✅ (Espaço disponível)    ║\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Opção 3: Usar peça reservada da pilha</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarPilhaVazia(pilhaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  3️⃣  Usar peça reservada          ❌ (Pilha vazia)          ║\n&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  3️⃣  Usar peça reservada          ✅ (Peça %c%d no topo)    ║\n&quot;</span>,</div>
+<div class="line">               pilhaPtr-&gt;pecasReservadas[pilhaPtr-&gt;indiceTopo].tipo,</div>
+<div class="line">               pilhaPtr-&gt;pecasReservadas[pilhaPtr-&gt;indiceTopo].id);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Opção 4: Gerar nova peça</span></div>
+<div class="line">    <span class="keywordflow">if</span> (verificarFilaCheia(filaPtr)) {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  4️⃣  Gerar nova peça              ❌ (Fila cheia)           ║\n&quot;</span>);</div>
+<div class="line">    } <span class="keywordflow">else</span> {</div>
+<div class="line">        printf(<span class="stringliteral">&quot;║  4️⃣  Gerar nova peça              ✅ (Espaço disponível)    ║\n&quot;</span>);</div>
+<div class="line">    }</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Opções sempre disponíveis</span></div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  5️⃣  Exibir estado completo       ✅ (Sempre disponível)    ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  6️⃣  Estatísticas Expert          ✅ (Pontuação &amp; Combos)   ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  0️⃣  Sair do programa             ✅ (Sempre disponível)    ║\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;╚═══════════════════════════════════════════════════════════════╝\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;🎮 Digite sua escolha: &quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirBoasVindas() {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╔══════════════════════════════════════════════════════════════╗\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║            🎮 BEM-VINDO AO TETRIS STACK! 🎮                  ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                     Nível Novato                            ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  Sistema de fila circular de peças inicializado com         ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  sucesso! Você pode começar a jogar imediatamente.          ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╚══════════════════════════════════════════════════════════════╝\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">void</span> exibirDespedida() {</div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╔══════════════════════════════════════════════════════════════╗\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║               👋 OBRIGADO POR JOGAR! 👋                      ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                    Tetris Stack                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                   Nível Adventurer                           ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  🎮 Você explorou com sucesso:                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║     • Fila circular de 5 peças                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║     • Pilha de reserva de 3 peças                           ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║     • Operações integradas entre estruturas                 ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║  Volte sempre para mais desafios! 🚀                        ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;║                                                              ║\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;╚══════════════════════════════════════════════════════════════╝\n&quot;</span>);</div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="line"><span class="comment">/*</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> *                              FUNÇÃO PRINCIPAL</span></div>
+<div class="line"><span class="comment"> * ═══════════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line"><span class="comment"> */</span></div>
+<div class="line"></div>
+<div class="line"><span class="keywordtype">int</span> main() {</div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                           INICIALIZAÇÃO DO SISTEMA</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Inicializa gerador de números aleatórios com seed baseada no tempo atual</span></div>
+<div class="line">    srand(time(NULL));</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Declaração das estruturas principais</span></div>
+<div class="line">    FilaCircular filaDeJogo;        <span class="comment">// Fila circular para 5 peças</span></div>
+<div class="line">    PilhaReserva pilhaReserva;      <span class="comment">// Pilha linear para 3 peças reservadas</span></div>
+<div class="line">    SistemaExpert sistemaExpert;    <span class="comment">// Sistema Expert para pontuação e estatísticas</span></div>
+<div class="line">    <span class="keywordtype">int</span> opcaoEscolhida;             <span class="comment">// Opção selecionada pelo usuário</span></div>
+<div class="line">    <span class="keywordtype">int</span> contadorPecasJogadas = 0;   <span class="comment">// Estatística de peças jogadas</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Inicialização das estruturas de dados</span></div>
+<div class="line">    inicializarFilaCircular(&amp;filaDeJogo);</div>
+<div class="line">    inicializarPilhaReserva(&amp;pilhaReserva);</div>
+<div class="line">    <a class="code hl_function" href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a>(&amp;sistemaExpert);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Exibe mensagem de boas-vindas</span></div>
+<div class="line">    exibirBoasVindas();</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// Mostra estado inicial completo</span></div>
+<div class="line">    exibirEstadoCompleto(&amp;filaDeJogo, &amp;pilhaReserva);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                              LOOP PRINCIPAL</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">do</span> {</div>
+<div class="line">        <span class="comment">// Exibe menu contextual e captura opção do usuário</span></div>
+<div class="line">        exibirMenuPrincipal(&amp;filaDeJogo, &amp;pilhaReserva);</div>
+<div class="line">        scanf(<span class="stringliteral">&quot;%d&quot;</span>, &amp;opcaoEscolhida);</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Processa a opção escolhida</span></div>
+<div class="line">        <span class="keywordflow">switch</span> (opcaoEscolhida) {</div>
+<div class="line">            <span class="keywordflow">case</span> 1: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                    JOGAR PEÇA DA FILA</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n🎮 Processando jogada...\n&quot;</span>);</div>
+<div class="line">                <span class="comment">// Validação otimizada com early return</span></div>
+<div class="line">                <span class="keywordflow">if</span> (!verificarFilaVazia(&amp;filaDeJogo)) {</div>
+<div class="line">                    <span class="comment">// Remove peça da frente da fila</span></div>
+<div class="line">                    Peca pecaJogada = removerPecaDaFila(&amp;filaDeJogo);</div>
+<div class="line">                    contadorPecasJogadas++;</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                    <span class="comment">//                    PROCESSAMENTO EXPERT</span></div>
+<div class="line">                    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                    <a class="code hl_function" href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a>(pecaJogada, 1, &amp;sistemaExpert); <span class="comment">// 1 = da fila</span></div>
+<div class="line">                    </div>
+<div class="line">                    printf(<span class="stringliteral">&quot;✅ Peça %c%d foi jogada com sucesso!\n&quot;</span>, </div>
+<div class="line">                           pecaJogada.tipo, pecaJogada.id);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   🏆 Pontos ganhos: %d (Total: %d)\n&quot;</span>, </div>
+<div class="line">                           sistemaExpert.pontosUltimaJogada, sistemaExpert.pontuacaoTotal);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// Verifica se formou combo</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (sistemaExpert.comboAtual &gt; 0) {</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;   🔥 COMBO x%d! Multiplicador: %dx\n&quot;</span>, </div>
+<div class="line">                               sistemaExpert.comboAtual, sistemaExpert.multiplicadorAtual);</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// Verifica se subiu de nível</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code hl_function" href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a>(&amp;sistemaExpert)) {</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;   🎉 PARABÉNS! Você subiu para o NÍVEL %d!\n&quot;</span>, </div>
+<div class="line">                               sistemaExpert.nivelAtual);</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;   ⚡ Dificuldade aumentada: %.1fx\n&quot;</span>, </div>
+<div class="line">                               sistemaExpert.fatorDificuldade);</div>
+<div class="line">                    }</div>
+<div class="line">                    </div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   📊 Peças restantes na fila: %d/5\n&quot;</span>, </div>
+<div class="line">                           filaDeJogo.quantidadePecas);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// Gera automaticamente uma nova peça se houver espaço</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (!verificarFilaCheia(&amp;filaDeJogo)) {</div>
+<div class="line">                        Peca novaPecaGerada = gerarNovaPeca();</div>
+<div class="line">                        inserirPecaNaFila(&amp;filaDeJogo, novaPecaGerada);</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;   🔄 Nova peça %c%d gerada automaticamente\n&quot;</span>, </div>
+<div class="line">                               novaPecaGerada.tipo, novaPecaGerada.id);</div>
+<div class="line">                    }</div>
+<div class="line">                } <span class="keywordflow">else</span> {</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;❌ Impossível jogar: fila está vazia!\n&quot;</span>);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   💡 Dica: Gere novas peças primeiro (opção 4)\n&quot;</span>);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">case</span> 2: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                 RESERVAR PEÇA DA FILA NA PILHA</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n📦 Processando reserva de peça...\n&quot;</span>);</div>
+<div class="line">                <span class="comment">// Validação otimizada com múltiplas condições</span></div>
+<div class="line">                <span class="keywordflow">if</span> (verificarFilaVazia(&amp;filaDeJogo)) {</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;❌ Impossível reservar: fila está vazia!\n&quot;</span>);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   💡 Dica: Gere novas peças primeiro (opção 4)\n&quot;</span>);</div>
+<div class="line">                } <span class="keywordflow">else</span> <span class="keywordflow">if</span> (verificarPilhaCheia(&amp;pilhaReserva)) {</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;❌ Impossível reservar: pilha está cheia!\n&quot;</span>);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   💡 Dica: Use peças reservadas primeiro (opção 3)\n&quot;</span>);</div>
+<div class="line">                } <span class="keywordflow">else</span> {</div>
+<div class="line">                    Peca pecaReservada = removerPecaDaFila(&amp;filaDeJogo);</div>
+<div class="line">                    reservarPecaNaPilha(&amp;pilhaReserva, pecaReservada);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                    <span class="comment">//                    ATUALIZAÇÃO EXPERT - RESERVA</span></div>
+<div class="line">                    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                    sistemaExpert.pecasReservadas++;</div>
+<div class="line">                    </div>
+<div class="line">                    printf(<span class="stringliteral">&quot;✅ Peça %c%d foi reservada na pilha!\n&quot;</span>, </div>
+<div class="line">                           pecaReservada.tipo, pecaReservada.id);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   📊 Peças na fila: %d/5 | Peças reservadas: %d/3\n&quot;</span>, </div>
+<div class="line">                           filaDeJogo.quantidadePecas, pilhaReserva.quantidadeReservada);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// Gera automaticamente uma nova peça se houver espaço</span></div>
+<div class="line">                    <span class="keywordflow">if</span> (!verificarFilaCheia(&amp;filaDeJogo)) {</div>
+<div class="line">                        Peca novaPecaGerada = gerarNovaPeca();</div>
+<div class="line">                        inserirPecaNaFila(&amp;filaDeJogo, novaPecaGerada);</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;   🔄 Nova peça %c%d gerada automaticamente\n&quot;</span>, </div>
+<div class="line">                               novaPecaGerada.tipo, novaPecaGerada.id);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">case</span> 3: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                   USAR PEÇA RESERVADA DA PILHA</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n🎯 Processando uso de peça reservada...\n&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line"><span class="keywordflow">if</span> (verificarPilhaVazia(&amp;pilhaReserva)) {</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;❌ Impossível usar: pilha está vazia!\n&quot;</span>);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   💡 Dica: Reserve peças primeiro (opção 2)\n&quot;</span>);</div>
+<div class="line">                } <span class="keywordflow">else</span> {</div>
+<div class="line">                    Peca pecaUsada = usarPecaDaPilha(&amp;pilhaReserva);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                    <span class="comment">//                    PROCESSAMENTO EXPERT - USO RESERVA</span></div>
+<div class="line">                    <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                    <a class="code hl_function" href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a>(pecaUsada, 2, &amp;sistemaExpert); <span class="comment">// origem 2 = pilha</span></div>
+<div class="line">                    </div>
+<div class="line">                    printf(<span class="stringliteral">&quot;✅ Peça reservada %c%d foi usada com sucesso!\n&quot;</span>, </div>
+<div class="line">                           pecaUsada.tipo, pecaUsada.id);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   📊 Peças reservadas restantes: %d/3\n&quot;</span>, </div>
+<div class="line">                           pilhaReserva.quantidadeReservada);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="comment">// Exibir informações Expert</span></div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   🎯 Pontuação: %d (+%d) | Combo: %dx | Nível: %d\n&quot;</span>,</div>
+<div class="line">                           sistemaExpert.pontuacaoTotal, sistemaExpert.pontosUltimaJogada,</div>
+<div class="line">                           sistemaExpert.comboAtual, sistemaExpert.nivelAtual);</div>
+<div class="line">                    </div>
+<div class="line">                    <span class="keywordflow">if</span> (<a class="code hl_function" href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a>(&amp;sistemaExpert)) {</div>
+<div class="line">                        printf(<span class="stringliteral">&quot;   🎉 NÍVEL UP! Agora você está no nível %d!\n&quot;</span>, </div>
+<div class="line">                               sistemaExpert.nivelAtual);</div>
+<div class="line">                    }</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">case</span> 4: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                      GERAR NOVA PEÇA</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n🔄 Processando geração de nova peça...\n&quot;</span>);</div>
+<div class="line">                </div>
+<div class="line"><span class="keywordflow">if</span> (verificarFilaCheia(&amp;filaDeJogo)) {</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;❌ Impossível gerar: fila está cheia!\n&quot;</span>);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   💡 Dica: Jogue ou reserve peças primeiro (opções 1 ou 2)\n&quot;</span>);</div>
+<div class="line">                } <span class="keywordflow">else</span> {</div>
+<div class="line">                    Peca novaPecaGerada = gerarNovaPeca();</div>
+<div class="line">                    inserirPecaNaFila(&amp;filaDeJogo, novaPecaGerada);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;✅ Nova peça %c%d gerada e adicionada à fila!\n&quot;</span>, </div>
+<div class="line">                           novaPecaGerada.tipo, novaPecaGerada.id);</div>
+<div class="line">                    printf(<span class="stringliteral">&quot;   📊 Peças na fila: %d/5\n&quot;</span>, filaDeJogo.quantidadePecas);</div>
+<div class="line">                }</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">case</span> 5: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                    EXIBIR ESTADO COMPLETO</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n📊 Atualizando visualização completa...\n&quot;</span>);</div>
+<div class="line">                exibirEstadoCompleto(&amp;filaDeJogo, &amp;pilhaReserva);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">case</span> 6: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                   ESTATÍSTICAS EXPERT</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n📊 Exibindo estatísticas Expert...\n&quot;</span>);</div>
+<div class="line">                exibirEstatisticasExpert(&amp;sistemaExpert);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">            </div>
+<div class="line">            <span class="keywordflow">case</span> 0: {</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                        SAIR DO PROGRAMA</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n👋 Encerrando o jogo...\n&quot;</span>);</div>
+<div class="line">                exibirDespedida();</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">            }</div>
+<div class="line">                </div>
+<div class="line">            <span class="keywordflow">default</span>:</div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                <span class="comment">//                       OPÇÃO INVÁLIDA</span></div>
+<div class="line">                <span class="comment">// ═══════════════════════════════════════════════════════════════</span></div>
+<div class="line">                printf(<span class="stringliteral">&quot;\n❌ Opção inválida! Por favor, escolha uma opção válida.\n&quot;</span>);</div>
+<div class="line">                printf(<span class="stringliteral">&quot;   💡 Opções disponíveis: 0, 1, 2, 3, 4, 5, 6\n&quot;</span>);</div>
+<div class="line">                <span class="keywordflow">break</span>;</div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">        <span class="comment">// Pausa para o usuário ler as mensagens antes de continuar</span></div>
+<div class="line">        <span class="keywordflow">if</span> (opcaoEscolhida != 0 &amp;&amp; opcaoEscolhida != 5 &amp;&amp; opcaoEscolhida != 6) {</div>
+<div class="line">            printf(<span class="stringliteral">&quot;\n⏸️  Pressione Enter para continuar...&quot;</span>);</div>
+<div class="line">            getchar(); <span class="comment">// Limpa buffer do scanf</span></div>
+<div class="line">            getchar(); <span class="comment">// Aguarda Enter do usuário</span></div>
+<div class="line">        }</div>
+<div class="line">        </div>
+<div class="line">    } <span class="keywordflow">while</span> (opcaoEscolhida != 0);</div>
+<div class="line">    </div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line">    <span class="comment">//                              FINALIZAÇÃO</span></div>
+<div class="line">    <span class="comment">// ═══════════════════════════════════════════════════════════════════════════</span></div>
+<div class="line">    </div>
+<div class="line">    printf(<span class="stringliteral">&quot;\n🎯 Programa finalizado com sucesso!\n&quot;</span>);</div>
+<div class="line">    printf(<span class="stringliteral">&quot;   Obrigado por jogar Tetris Stack - Nível Adventurer!\n\n&quot;</span>);</div>
+<div class="line">    </div>
+<div class="line">    <span class="keywordflow">return</span> 0; <span class="comment">// Indica execução bem-sucedida</span></div>
+<div class="line">}</div>
+<div class="line"> </div>
+<div class="ttc" id="atetris_8c_html_a2905e073b3d5b998d159f5f17d0d1f9a"><div class="ttname"><a href="tetris_8c.html#a2905e073b3d5b998d159f5f17d0d1f9a">detectarCombo</a></div><div class="ttdeci">int detectarCombo(char tipoPeca, SistemaExpert *sistemaPtr)</div><div class="ttdoc">Detecta e processa combos de peças consecutivas.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00285">tetris.c:285</a></div></div>
+<div class="ttc" id="atetris_8c_html_a6165ae6c43b73bd06d2efbe452b039aa"><div class="ttname"><a href="tetris_8c.html#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a></div><div class="ttdeci">int verificarProgressaoNivel(SistemaExpert *sistemaPtr)</div><div class="ttdoc">Verifica e processa progressão de nível.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00354">tetris.c:354</a></div></div>
+<div class="ttc" id="atetris_8c_html_a9e02dcf454b4b8d211118be482b21b49"><div class="ttname"><a href="tetris_8c.html#a9e02dcf454b4b8d211118be482b21b49">calcularPontuacao</a></div><div class="ttdeci">int calcularPontuacao(char tipoPeca, SistemaExpert *sistemaPtr)</div><div class="ttdoc">Calcula pontuação baseada no tipo de peça e multiplicadores.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00249">tetris.c:249</a></div></div>
+<div class="ttc" id="atetris_8c_html_aaf4095c9b2ba3b00995bac973f037a2d"><div class="ttname"><a href="tetris_8c.html#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a></div><div class="ttdeci">void inicializarSistemaExpert(SistemaExpert *sistemaPtr)</div><div class="ttdoc">Inicializa o sistema Expert com valores padrão.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00178">tetris.c:178</a></div></div>
+<div class="ttc" id="atetris_8c_html_adeea4c9bfd48c9c3fe2e6be1687df862"><div class="ttname"><a href="tetris_8c.html#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a></div><div class="ttdeci">void processarJogadaExpert(Peca peca, int origem, SistemaExpert *sistemaPtr)</div><div class="ttdoc">Processa uma jogada completa no sistema Expert.</div><div class="ttdef"><b>Definição</b> <a href="tetris_8c_source.html#l00408">tetris.c:408</a></div></div>
+</div><!-- fragment --> </div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tetris Stack - Nível Adventurer: Referência à estrutura PilhaReserva</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Tetris Stack - Nível Adventurer<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Avançado de Gerenciamento de Peças Tetris</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#pub-attribs">Campos de Dados</a>  </div>
+  <div class="headertitle"><div class="title">Referência à estrutura PilhaReserva</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Estrutura que implementa uma pilha linear para reserva estratégica.  
+ <a href="#details">Mais...</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
+Campos de Dados</h2></td></tr>
+<tr class="memitem:a6bdcb5146e621929b16196f1e1c8a82c" id="r_a6bdcb5146e621929b16196f1e1c8a82c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="struct_peca.html">Peca</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6bdcb5146e621929b16196f1e1c8a82c">pecasReservadas</a> [3]</td></tr>
+<tr class="memitem:a5ceaa2f7a1c5601c17f2f0ed34cd8540" id="r_a5ceaa2f7a1c5601c17f2f0ed34cd8540"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ceaa2f7a1c5601c17f2f0ed34cd8540">indiceTopo</a></td></tr>
+<tr class="memitem:a0e55068e4a4c135fa4e14e5548bef927" id="r_a0e55068e4a4c135fa4e14e5548bef927"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0e55068e4a4c135fa4e14e5548bef927">quantidadeReservada</a></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Estrutura que implementa uma pilha linear para reserva estratégica. </p>
+<p>A pilha de reserva permite armazenamento temporário de até 3 peças, seguindo o padrão LIFO (Last In, First Out - último a entrar, primeiro a sair). É utilizada para estratégias avançadas de gerenciamento de peças.</p>
+<p>Componentes da estrutura: • pecasReservadas[3]: Array linear para armazenamento das peças • indiceTopo: Índice do topo da pilha (-1 = vazia, 0-2 = posições válidas) • quantidadeReservada: Contador atual de peças reservadas (0 a 3)</p>
+<p>Operações principais: • Push (empilhar): Adiciona peça no topo, incrementa indiceTopo • Pop (desempilhar): Remove peça do topo, decrementa indiceTopo</p>
+<dl class="section note"><dt>Nota</dt><dd>O índice -1 indica pilha vazia </dd>
+<dd>
+Máximo de 3 peças podem ser armazenadas simultaneamente </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#_a5">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00201">201</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Documentação dos campos e atributos</h2>
+<a id="a5ceaa2f7a1c5601c17f2f0ed34cd8540" name="a5ceaa2f7a1c5601c17f2f0ed34cd8540"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5ceaa2f7a1c5601c17f2f0ed34cd8540">&#9670;&#160;</a></span>indiceTopo</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PilhaReserva::indiceTopo</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a17">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00203">203</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<a id="a6bdcb5146e621929b16196f1e1c8a82c" name="a6bdcb5146e621929b16196f1e1c8a82c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6bdcb5146e621929b16196f1e1c8a82c">&#9670;&#160;</a></span>pecasReservadas</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="struct_peca.html">Peca</a> PilhaReserva::pecasReservadas[3]</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a22">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00202">202</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<a id="a0e55068e4a4c135fa4e14e5548bef927" name="a0e55068e4a4c135fa4e14e5548bef927"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0e55068e4a4c135fa4e14e5548bef927">&#9670;&#160;</a></span>quantidadeReservada</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int PilhaReserva::quantidadeReservada</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a18">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00204">204</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<hr/>A documentação para esta estrutura foi gerada a partir do seguinte ficheiro:<ul>
+<li><a class="el" href="tetris_8c_source.html">tetris.c</a></li>
+</ul>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>

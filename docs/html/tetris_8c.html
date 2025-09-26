@@ -1,0 +1,328 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "https://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="pt">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=11"/>
+<meta name="generator" content="Doxygen 1.14.0"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Tetris Stack - Nível Adventurer: Referência ao ficheiro tetris.c</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<script type="text/javascript" src="clipboard.js"></script>
+<script type="text/javascript" src="cookie.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr id="projectrow">
+  <td id="projectalign">
+   <div id="projectname">Tetris Stack - Nível Adventurer<span id="projectnumber">&#160;2.0.0</span>
+   </div>
+   <div id="projectbrief">Sistema Avançado de Gerenciamento de Peças Tetris</div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Gerado por Doxygen 1.14.0 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search/",'.html');
+</script>
+<script type="text/javascript">
+$(function() { codefold.init(); });
+</script>
+<script type="text/javascript" src="menudata.js"></script>
+<script type="text/javascript" src="menu.js"></script>
+<script type="text/javascript">
+$(function() {
+  initMenu('',true,false,'search.php','Localizar',false);
+  $(function() { init_search(); });
+});
+</script>
+<div id="main-nav"></div>
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<div id="MSearchResults">
+<div class="SRPage">
+<div id="SRIndex">
+<div id="SRResults"></div>
+<div class="SRStatus" id="Loading">Carregando...</div>
+<div class="SRStatus" id="Searching">Procurando...</div>
+<div class="SRStatus" id="NoMatches">Nenhuma entrada encontrada</div>
+</div>
+</div>
+</div>
+</div>
+
+</div><!-- top -->
+<div id="doc-content">
+<div class="header">
+  <div class="summary">
+<a href="#func-members">Funções</a>  </div>
+  <div class="headertitle"><div class="title">Referência ao ficheiro tetris.c</div></div>
+</div><!--header-->
+<div class="contents">
+
+<p>Sistema Avançado de Gerenciamento de Peças Tetris - Nível Expert.  
+<a href="#details">Mais...</a></p>
+<div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;stdlib.h&gt;</code><br />
+<code>#include &lt;time.h&gt;</code><br />
+</div>
+<p><a href="tetris_8c_source.html">Ir para o código fonte deste ficheiro.</a></p>
+<table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Funções</h2></td></tr>
+<tr class="memitem:aaf4095c9b2ba3b00995bac973f037a2d" id="r_aaf4095c9b2ba3b00995bac973f037a2d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aaf4095c9b2ba3b00995bac973f037a2d">inicializarSistemaExpert</a> (SistemaExpert *sistemaPtr)</td></tr>
+<tr class="memdesc:aaf4095c9b2ba3b00995bac973f037a2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa o sistema Expert com valores padrão.  <br /></td></tr>
+<tr class="memitem:a9e02dcf454b4b8d211118be482b21b49" id="r_a9e02dcf454b4b8d211118be482b21b49"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e02dcf454b4b8d211118be482b21b49">calcularPontuacao</a> (char tipoPeca, SistemaExpert *sistemaPtr)</td></tr>
+<tr class="memdesc:a9e02dcf454b4b8d211118be482b21b49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calcula pontuação baseada no tipo de peça e multiplicadores.  <br /></td></tr>
+<tr class="memitem:a2905e073b3d5b998d159f5f17d0d1f9a" id="r_a2905e073b3d5b998d159f5f17d0d1f9a"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2905e073b3d5b998d159f5f17d0d1f9a">detectarCombo</a> (char tipoPeca, SistemaExpert *sistemaPtr)</td></tr>
+<tr class="memdesc:a2905e073b3d5b998d159f5f17d0d1f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Detecta e processa combos de peças consecutivas.  <br /></td></tr>
+<tr class="memitem:a6165ae6c43b73bd06d2efbe452b039aa" id="r_a6165ae6c43b73bd06d2efbe452b039aa"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6165ae6c43b73bd06d2efbe452b039aa">verificarProgressaoNivel</a> (SistemaExpert *sistemaPtr)</td></tr>
+<tr class="memdesc:a6165ae6c43b73bd06d2efbe452b039aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Verifica e processa progressão de nível.  <br /></td></tr>
+<tr class="memitem:adeea4c9bfd48c9c3fe2e6be1687df862" id="r_adeea4c9bfd48c9c3fe2e6be1687df862"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#adeea4c9bfd48c9c3fe2e6be1687df862">processarJogadaExpert</a> (Peca peca, int origem, SistemaExpert *sistemaPtr)</td></tr>
+<tr class="memdesc:adeea4c9bfd48c9c3fe2e6be1687df862"><td class="mdescLeft">&#160;</td><td class="mdescRight">Processa uma jogada completa no sistema Expert.  <br /></td></tr>
+</table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Descrição detalhada</h2>
+<div class="textblock"><p>Sistema Avançado de Gerenciamento de Peças Tetris - Nível Expert. </p>
+<dl class="section version"><dt>Versão</dt><dd>3.0.0 </dd></dl>
+<dl class="section date"><dt>Data</dt><dd>2024-01-27 </dd></dl>
+<dl class="section author"><dt>Autor</dt><dd>João Santos @institution Universidade Estácio de Sá @discipline Estruturas de Dados @created 2024-01-20 @updated 2024-01-27 </dd></dl>
+
+<p class="definition">Definido no ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Documentação das funções</h2>
+<a id="a9e02dcf454b4b8d211118be482b21b49" name="a9e02dcf454b4b8d211118be482b21b49"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9e02dcf454b4b8d211118be482b21b49">&#9670;&#160;</a></span>calcularPontuacao()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int calcularPontuacao </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>tipoPeca</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SistemaExpert *</td>          <td class="paramname"><span class="paramname"><em>sistemaPtr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calcula pontuação baseada no tipo de peça e multiplicadores. </p>
+<p>Sistema de pontuação dinâmica que considera:</p><ul>
+<li>Tipo de peça (valores base diferentes)</li>
+<li>Multiplicador atual (combos e nível)</li>
+<li>Fator de dificuldade do nível</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tipoPeca</td><td>Tipo da peça jogada ('I', 'O', 'T', 'L') </td></tr>
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int Pontos calculados para a jogada </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a1">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00249">249</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<a id="a2905e073b3d5b998d159f5f17d0d1f9a" name="a2905e073b3d5b998d159f5f17d0d1f9a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2905e073b3d5b998d159f5f17d0d1f9a">&#9670;&#160;</a></span>detectarCombo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int detectarCombo </td>
+          <td>(</td>
+          <td class="paramtype">char</td>          <td class="paramname"><span class="paramname"><em>tipoPeca</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SistemaExpert *</td>          <td class="paramname"><span class="paramname"><em>sistemaPtr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Detecta e processa combos de peças consecutivas. </p>
+<p>Sistema de detecção de combos que identifica:</p><ul>
+<li>Sequências do mesmo tipo de peça</li>
+<li>Combos especiais (3+ peças iguais)</li>
+<li>Atualização de multiplicadores</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">tipoPeca</td><td>Tipo da peça atual </td></tr>
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int 1 se formou combo, 0 caso contrário </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a2">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00285">285</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<a id="aaf4095c9b2ba3b00995bac973f037a2d" name="aaf4095c9b2ba3b00995bac973f037a2d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aaf4095c9b2ba3b00995bac973f037a2d">&#9670;&#160;</a></span>inicializarSistemaExpert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void inicializarSistemaExpert </td>
+          <td>(</td>
+          <td class="paramtype">SistemaExpert *</td>          <td class="paramname"><span class="paramname"><em>sistemaPtr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Inicializa o sistema Expert com valores padrão. </p>
+<p>Esta função configura todos os parâmetros iniciais do sistema de pontuação e estatísticas avançadas do Nível Expert.</p>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para a estrutura SistemaExpert a ser inicializada</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Valores iniciais configurados:</p><ul>
+<li>Pontuação: 0 pontos, multiplicador 1x, nível 1</li>
+<li>Combos: todos zerados, sem tipo anterior</li>
+<li>Dificuldade: nível 1, fator 1.0, 1000 pontos para próximo nível</li>
+<li>Estatísticas: todos contadores zerados</li>
+<li>Conquistas: nenhuma desbloqueada </li>
+</ul>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a0">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00178">178</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<a id="adeea4c9bfd48c9c3fe2e6be1687df862" name="adeea4c9bfd48c9c3fe2e6be1687df862"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adeea4c9bfd48c9c3fe2e6be1687df862">&#9670;&#160;</a></span>processarJogadaExpert()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void processarJogadaExpert </td>
+          <td>(</td>
+          <td class="paramtype">Peca</td>          <td class="paramname"><span class="paramname"><em>peca</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int</td>          <td class="paramname"><span class="paramname"><em>origem</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">SistemaExpert *</td>          <td class="paramname"><span class="paramname"><em>sistemaPtr</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Processa uma jogada completa no sistema Expert. </p>
+<p>Função principal que integra todos os sistemas:</p><ul>
+<li>Calcula pontuação</li>
+<li>Detecta combos</li>
+<li>Atualiza estatísticas</li>
+<li>Verifica progressão</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">peca</td><td>Peça jogada </td></tr>
+    <tr><td class="paramname">origem</td><td>1 se da fila, 0 se da pilha </td></tr>
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a4">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00408">408</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+<a id="a6165ae6c43b73bd06d2efbe452b039aa" name="a6165ae6c43b73bd06d2efbe452b039aa"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6165ae6c43b73bd06d2efbe452b039aa">&#9670;&#160;</a></span>verificarProgressaoNivel()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int verificarProgressaoNivel </td>
+          <td>(</td>
+          <td class="paramtype">SistemaExpert *</td>          <td class="paramname"><span class="paramname"><em>sistemaPtr</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Verifica e processa progressão de nível. </p>
+<p>Sistema de progressão automática que:</p><ul>
+<li>Monitora pontuação para mudança de nível</li>
+<li>Ajusta fator de dificuldade</li>
+<li>Calcula pontos necessários para próximo nível</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>int 1 se subiu de nível, 0 caso contrário</dd></dl>
+<p>Verifica e processa a progressão de nível do jogador</p>
+<p>Sistema de progressão dinâmica que:</p><ul>
+<li>Monitora pontuação do nível atual</li>
+<li>Calcula progressão exponencial de dificuldade</li>
+<li>Ajusta multiplicadores e limites automaticamente</li>
+</ul>
+<dl class="params"><dt>Parâmetros</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">sistemaPtr</td><td>Ponteiro para o sistema Expert </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Retorna</dt><dd>1 se subiu de nível, 0 caso contrário </dd></dl>
+<dl class="section examples"><dt>Exemplos</dt><dd><a class="el" href="_c_1_2_users_2joaoc_2_documents_2_estacio_2tetris-_joao_santos_codes-main_2tetris_8c-example.html#a3">C:/Users/joaoc/Documents/Estacio/tetris-JoaoSantosCodes-main/tetris.c</a>.</dd>
+</dl>
+
+<p class="definition">Definido na linha <a class="el" href="tetris_8c_source.html#l00354">354</a> do ficheiro <a class="el" href="tetris_8c_source.html">tetris.c</a>.</p>
+
+</div>
+</div>
+</div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Gerado por&#160;<a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.14.0
+</small></address>
+</div><!-- doc-content -->
+</body>
+</html>
