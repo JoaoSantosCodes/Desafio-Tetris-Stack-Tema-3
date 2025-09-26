@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tetris Expert System - Interface Web</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="title">🎮 Tetris Expert System</h1>
+            <p class="subtitle">Sistema Avançado de Gerenciamento de Peças</p>
+        </header>
+
+        <!-- Game Area -->
+        <main class="game-area">
+            <!-- Left Panel - Queue and Reserve -->
+            <aside class="left-panel">
+                <div class="queue-section">
+                    <h3>🔄 Fila Circular</h3>
+                    <div class="queue-container">
+                        <div class="piece-slot" id="queue-0">
+                            <span class="piece-type">I</span>
+                        </div>
+                        <div class="piece-slot" id="queue-1">
+                            <span class="piece-type">O</span>
+                        </div>
+                        <div class="piece-slot" id="queue-2">
+                            <span class="piece-type">T</span>
+                        </div>
+                        <div class="piece-slot" id="queue-3">
+                            <span class="piece-type">S</span>
+                        </div>
+                        <div class="piece-slot" id="queue-4">
+                            <span class="piece-type">Z</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reserve-section">
+                    <h3>📦 Pilha de Reserva</h3>
+                    <div class="reserve-container">
+                        <div class="reserve-slot" id="reserve-top">
+                            <span class="piece-type">L</span>
+                        </div>
+                        <div class="reserve-slot" id="reserve-middle">
+                            <span class="piece-type">J</span>
+                        </div>
+                        <div class="reserve-slot" id="reserve-bottom">
+                            <span class="piece-type">-</span>
+                        </div>
+                    </div>
+                </div>
+            </aside>
+
+            <!-- Center Panel - Game Board -->
+            <section class="game-board">
+                <div class="board-header">
+                    <h2>🎯 Área de Jogo</h2>
+                    <div class="current-piece">
+                        <span>Peça Atual: </span>
+                        <span class="piece-display" id="current-piece">T</span>
+                    </div>
+                </div>
+                <div class="tetris-grid" id="tetris-grid">
+                    <!-- Grid será gerado dinamicamente -->
+                </div>
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="play-piece">🎮 Jogar Peça</button>
+                    <button class="btn btn-secondary" id="transfer-piece">🔄 Transferir</button>
+                    <button class="btn btn-warning" id="use-reserve">📦 Usar Reserva</button>
+                    <button class="btn btn-success" id="generate-piece">➕ Gerar Nova</button>
+                </div>
+            </section>
+
+            <!-- Right Panel - Statistics and Expert System -->
+            <aside class="right-panel">
+                <div class="stats-section">
+                    <h3>📊 Estatísticas</h3>
+                    <div class="stat-item">
+                        <span class="stat-label">Pontuação:</span>
+                        <span class="stat-value" id="score">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Nível:</span>
+                        <span class="stat-value" id="level">1</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Combos:</span>
+                        <span class="stat-value" id="combos">0</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-label">Eficiência:</span>
+                        <span class="stat-value" id="efficiency">0%</span>
+                    </div>
+                </div>
+
+                <div class="expert-section">
+                    <h3>🧠 Sistema Expert</h3>
+                    <div class="expert-tip" id="expertTip">
+                        Clique em "Dica Expert" para receber sugestões inteligentes!
+                    </div>
+                    <button id="showTip" class="btn btn-secondary">💡 Dica Expert</button>
+                    
+                    <div class="controls-info">
+                        <h4>⌨️ Controles</h4>
+                        <ul>
+                            <li>Mover: <span class="key">← →</span></li>
+                            <li>Acelerar: <span class="key">↓</span></li>
+                            <li>Rotar: <span class="key">↑</span></li>
+                            <li>Drop: <span class="key">ESPAÇO</span></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="actions-section">
+                    <h3>⚙️ Ações</h3>
+                    <button class="btn btn-success" id="start-game">▶️ Iniciar Jogo</button>
+                    <button class="btn btn-warning" id="pause-game">⏸️ Pausar</button>
+                    <button class="btn btn-info" id="show-stats">📈 Ver Estatísticas</button>
+                    <button class="btn btn-warning" id="optimize-system">🔧 Otimizar</button>
+                    <button class="btn btn-danger" id="reset-game">🔄 Reiniciar</button>
+                </div>
+            </aside>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-content">
+                <p>&copy; 2024 Tetris Expert System - Desenvolvido por João Santos</p>
+                <div class="footer-links">
+                    <a href="docs/html/index.html" target="_blank">📚 Documentação</a>
+                    <a href="https://github.com/JoaoSantosCodes/Desafio-Tetris-Stack-Tema-3" target="_blank">💻 GitHub</a>
+                </div>
+            </div>
+        </footer>
+
+        <!-- Modal for Statistics -->
+        <div class="modal" id="stats-modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2>📊 Estatísticas Detalhadas</h2>
+                    <span class="close" id="close-modal">&times;</span>
+                </div>
+                <div class="modal-body">
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Jogadas Totais</h4>
+                            <span class="big-number" id="total-plays">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Da Fila</h4>
+                            <span class="big-number" id="queue-plays">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Da Pilha</h4>
+                            <span class="big-number" id="stack-plays">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>Reservadas</h4>
+                            <span class="big-number" id="reserved-pieces">0</span>
+                        </div>
+                    </div>
+                    <div class="piece-stats">
+                        <h4>Estatísticas por Peça</h4>
+                        <div class="piece-stats-grid" id="piece-stats-grid">
+                            <!-- Será preenchido dinamicamente -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Carregar o sistema modularizado -->
+    <script type="module" src="app.js"></script>
+    
+    <!-- Fallback para navegadores que não suportam módulos ES6 -->
+    <script nomodule>
+        alert('Seu navegador não suporta módulos ES6. Por favor, use um navegador mais recente.');
+    </script>
+</body>
+</html>

@@ -111,3 +111,85 @@ Boa sorte e divirta-se programando!
 
 Equipe de Ensino - ByteBros
 
+```
+
+## Versão Web Modular do Tetris (JavaScript)
+
+Esta versão web foi reconstruída de forma independente e modular, sem interferir no projeto original em C. A página de entrada é `new-tetris.html`, que carrega módulos ES em `newtetris/`.
+
+- Como executar localmente:
+  - Já existe um servidor local comum: abra http://localhost:8000/new-tetris.html
+  - Alternativamente, rode: `python -m http.server 8000` e acesse a mesma URL.
+- Principais funcionalidades de UX/UI:
+  - Próxima peça e Reserva (Hold) com mini-canvases
+  - Ghost piece (sombra de queda)
+  - Animação de limpeza de linhas
+  - Status pill dinâmico (Pronto/Jogando/Pausado/Fim)
+  - Botões com estados, tooltips e atalhos de teclado
+- Atalhos:
+  - Setas: mover/rotacionar/acelerar
+  - Espaço: queda rápida
+  - P: pausar/retomar
+  - C: reservar (hold)
+  - Enter: iniciar
+  - R: reiniciar
+
+Estrutura dos módulos (pasta `newtetris/`):
+- `consts.js`: dimensões, tempos e tetrominós/cores
+- `board.js`: operações do tabuleiro (criação, merge e limpeza de linhas)
+- `pieces.js`: geração, rotação, colisão e clone de peça
+- `render.js`: renderização do tabuleiro, peça, ghost e miniaturas
+- `hud.js`: placar, status e estados de botões
+- `controls.js`: mapeamento de botões/teclado com acessibilidade
+- `game.js`: loop principal, spawn/hold, movimentos, lock, limpeza e pontuação
+- `main.js`: bootstrap que conecta DOM ↔ motor do jogo
+
+Arquivo HTML:
+- `new-tetris.html`: carrega `type="module"` apontando para `newtetris/main.js` e contém a interface (canvas, HUD, painéis Next/Hold e controles).
+
+### Guia rápido: como jogar (web)
+1) Abra http://localhost:8000/new-tetris.html
+2) Pressione Enter para iniciar. Use as setas para mover (← →), rotacionar (↑) e acelerar (↓)
+3) Espaço para queda rápida; P para pausar/retomar; C para reservar (hold); R para reiniciar
+4) Acompanhe o placar, nível e linhas no painel; veja Próxima e Reserva nas miniaturas
+5) O status pill indica o estado: Pronto, Jogando, Pausado ou Fim
+
+### Arquitetura de módulos (diagrama simples)
+```
+newtetris/
+  consts.js     --> Constantes globais (dimensões, tempos, tetrominós, cores)
+  board.js      --> Criação/merge/aplicação de linhas do tabuleiro
+  pieces.js     --> Geração, rotação, colisão e clone de peças
+  render.js     --> Desenho do tabuleiro, peça, ghost e miniaturas
+  hud.js        --> Atualização de status, placar e estados de botões
+  controls.js   --> Bind de botões/teclado + acessibilidade
+  game.js       --> Loop principal, spawn/hold, movimentos, lock e pontuação
+  main.js       --> Bootstrap: conecta DOM ↔ Game ↔ HUD/Render/Controls
+
+Fluxo básico:
+main.js -> instancia Game + bind de controles
+Game -> usa board/pieces para lógica + render para desenhar + hud para UI
+```
+
+### Configurações futuras (roadmap de UI/UX)
+- Áudio com toggle no HUD:
+  - Efeitos para queda, travamento e limpeza de linhas
+  - Preferência persistida em localStorage (ligado/desligado)
+- Tema claro/escuro:
+  - Variáveis CSS (custom properties) para cores de fundo, grade e tetrominós
+  - Toggle no HUD com persistência em localStorage
+- Velocidade e dificuldade:
+  - Ajuste de queda inicial e incremento por nível
+  - Modo “Maratona” vs “Relax” (sem game over) com impacto no placar
+- Controles personalizáveis:
+  - Remapeamento de teclas via UI, com validação e fallback
+  - Exibição dinâmica dos atalhos nos tooltips e aria-keyshortcuts
+- Acessibilidade adicional:
+  - Suporte a navegação por teclado em todos os controles e foco visível
+  - Preferência “reduzir animações” (prefers-reduced-motion)
+- Persistência de progresso:
+  - Melhor tabela de recordes (high score) por modo
+  - Última configuração reaberta automaticamente ao carregar a página
+
+Como próximo passo, recomendo começarmos por “Áudio com toggle no HUD” (rápido impacto na percepção). Se concordar, implemento um módulo newtetris/audio.js, integro no Game e adiciono o controle no HUD.
+

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Novo Tetris</title>
+  <link rel="stylesheet" href="new-tetris.css" />
+</head>
+<body>
+  <main class="layout">
+    <section class="game">
+      <header class="hud">
+        <div class="status"><span class="status-pill">Pronto</span></div>
+        <div class="buttons">
+          <button id="start-btn" title="Iniciar (Enter)" aria-keyshortcuts="Enter">Iniciar</button>
+          <button id="pause-btn" title="Pausar/Retomar (P)" aria-keyshortcuts="P">Pausar (P)</button>
+          <button id="reset-btn" title="Reiniciar (R)" aria-keyshortcuts="R">Reiniciar (R)</button>
+        </div>
+      </header>
+      <canvas id="tetris-canvas" width="300" height="600" aria-label="Tabuleiro do Tetris"></canvas>
+    </section>
+    <aside class="sidebar">
+      <section class="panel panel--mini">
+        <h2>Próxima</h2>
+        <canvas id="next-canvas" width="120" height="120"></canvas>
+      </section>
+      <section class="panel panel--mini">
+        <h2>Hold</h2>
+        <canvas id="hold-canvas" width="120" height="120"></canvas>
+      </section>
+      <section class="panel">
+        <h2>Placar</h2>
+        <ul class="scoreboard">
+          <li><strong>Pontos:</strong> <span id="score">0</span></li>
+          <li><strong>Nível:</strong> <span id="level">1</span></li>
+          <li><strong>Linhas:</strong> <span id="lines">0</span></li>
+          <li><strong>Recorde:</strong> <span id="highscore">0</span></li>
+        </ul>
+      </section>
+      <section class="panel">
+        <h2>Configurações</h2>
+        <div class="settings-grid">
+          <button id="audio-btn" aria-pressed="false">Som: Desligado</button>
+          <button id="theme-btn" aria-pressed="false">Tema: Escuro</button>
+          <label>
+            Modo:
+            <select id="mode-select">
+              <option value="marathon">Maratona</option>
+              <option value="relax">Relax</option>
+            </select>
+          </label>
+          <label>
+            Velocidade inicial:
+            <select id="speed-select">
+              <option value="slow">Lenta</option>
+              <option value="normal" selected>Normal</option>
+              <option value="fast">Rápida</option>
+            </select>
+          </label>
+          <label>
+            Resolução:
+            <select id="resolution-select">
+              <option value="compact">Compacta (240×480)</option>
+              <option value="small">Baixa (300×600)</option>
+              <option value="medium" selected>Média (450×900)</option>
+              <option value="large">Alta (600×1200)</option>
+            </select>
+          </label>
+          <button id="keymap-btn">Configurar teclas…</button>
+        </div>
+      </section>
+      <section class="panel">
+        <h2>Atalhos</h2>
+        <ul>
+          <li>Iniciar: Enter</li>
+          <li>Pausar/Retomar: P</li>
+          <li>Reiniciar: R</li>
+          <li>Esquerda/Direita: ← / →</li>
+          <li>Rotacionar: ↑</li>
+          <li>Acelerar: ↓</li>
+          <li>Queda rápida: Espaço</li>
+          <li>Hold: C</li>
+        </ul>
+      </section>
+    </aside>
+  </main>
+  <script type="module" src="newtetris/main.js"></script>
+</body>
+</html>
